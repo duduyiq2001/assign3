@@ -30,7 +30,7 @@ parser.add_argument("--bp", default=None, type=str)
 parser.add_argument("--bp_size", default=None, type=int)
 parser.add_argument("--bp_bits", default=None, type=int)
 parser.add_argument("--clock.freq", default="1GHz", type=str)
-parser.add_argument("--l1d.assoc", default="8", type=int)
+parser.add_argument("--l1d.assoc", default="8", type=str)
 parser.add_argument("--l1d.size", default="64KiB", type=str)
 
 args = parser.parse_args()
