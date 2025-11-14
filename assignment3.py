@@ -1,7 +1,7 @@
 import os
 # from Caches import *
-from gem5.objects import *
-import gem5
+from m5.objects import *
+import m5
 import argparse
 from gem5.components.boards.simple_board import SimpleBoard
 from gem5.components.cachehierarchies.classic.no_cache import NoCache
