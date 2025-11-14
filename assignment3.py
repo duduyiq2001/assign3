@@ -15,10 +15,7 @@ from gem5.simulate.simulator import Simulator
 from gem5.utils.requires import requires
 
 
-from gem5.components.cachehierarchies.ruby.mesi_two_level_
-cache_hierarchy import (
-    MESITwoLevelCacheHierarchy,
-)
+from gem5.components.cachehierarchies.ruby.mesi_two_level_cache_hierarchy import (MESITwoLevelCacheHierarchy,)
 
 
 gem5_path = os.environ["GEM5"]
