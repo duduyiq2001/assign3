@@ -1,5 +1,5 @@
 import os
-from Caches import *
+# from Caches import *
 from m5.objects import *
 import m5
 import argparse
