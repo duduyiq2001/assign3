@@ -29,9 +29,9 @@ parser.add_argument("--queens-N", default=10, type=int)
 parser.add_argument("--bp", default=None, type=str)
 parser.add_argument("--bp_size", default=2048, type=int)
 parser.add_argument("--bp_bits", default=2, type=int)
-parser.add_argument("--clock.freq", default="1GHz", type=str)
-parser.add_argument("--l1d.assoc", default="8", type=str)
-parser.add_argument("--l1d.size", default="64KiB", type=str)
+parser.add_argument("--clock_freq", default="1GHz", type=str)
+parser.add_argument("--l1d_assoc", default="8", type=str)
+parser.add_argument("--l1d_size", default="64KiB", type=str)
 
 args = parser.parse_args()
 program_str = args.prog
