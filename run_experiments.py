@@ -98,15 +98,43 @@ def extract_metrics(output_dir):
     with open(stats_file, 'r') as f:
         stats_content = f.read()
 
+    # Extract raw stats
+    instructions = parse_stat(stats_content, "board.processor.cores.core.thread_0.numInsts")
+    cpu_cycles = parse_stat(stats_content, "board.processor.cores.core.numCycles")
+
+    l1d_hits = parse_stat(stats_content, "board.cache_hierarchy.ruby_system.l1_controllers.L1Dcache.m_demand_hits")
+    l1d_misses = parse_stat(stats_content, "board.cache_hierarchy.ruby_system.l1_controllers.L1Dcache.m_demand_misses")
+    l1d_accesses = parse_stat(stats_content, "board.cache_hierarchy.ruby_system.l1_controllers.L1Dcache.m_demand_accesses")
+
+    l1i_misses = parse_stat(stats_content, "board.cache_hierarchy.ruby_system.l1_controllers.L1Icache.m_demand_misses")
+    l1i_accesses = parse_stat(stats_content, "board.cache_hierarchy.ruby_system.l1_controllers.L1Icache.m_demand_accesses")
+
+    l2_misses = parse_stat(stats_content, "board.cache_hierarchy.ruby_system.l2_controllers.L2cache.m_demand_misses")
+    l2_accesses = parse_stat(stats_content, "board.cache_hierarchy.ruby_system.l2_controllers.L2cache.m_demand_accesses")
+
+    l1_replacements = parse_stat(stats_content, "board.cache_hierarchy.ruby_system.L1Cache_Controller.L1_Replacement")
+    avg_gap = parse_stat(stats_content, "board.memory.mem_ctrl.avgGap")
+
+    # Calculate miss rates
+    def calc_miss_rate(misses, accesses):
+        try:
+            return f"{(float(misses) / float(accesses)):.6f}" if accesses != "N/A" and float(accesses) > 0 else "N/A"
+        except:
+            return "N/A"
+
+    l1d_miss_rate = calc_miss_rate(l1d_misses, l1d_accesses)
+    l1i_miss_rate = calc_miss_rate(l1i_misses, l1i_accesses)
+    l2_miss_rate = calc_miss_rate(l2_misses, l2_accesses)
+
     metrics = {
-        "instructions_committed": parse_stat(stats_content, "board.processor.cores.core.exec_context.thread_0.numInsts"),
-        "avg_gap_between_requests": parse_stat(stats_content, "board.cache_hierarchy.ruby_system.m_avg_gap_between_requests"),
-        "l1d_hits": parse_stat(stats_content, "board.cache_hierarchy.ruby_system.l1_controllers0.L1Dcache.m_demand_hits"),
-        "l1d_replacements": parse_stat(stats_content, "board.cache_hierarchy.ruby_system.l1_controllers0.L1Dcache.m_replacements"),
-        "l1d_miss_rate": parse_stat(stats_content, "board.cache_hierarchy.ruby_system.l1_controllers0.L1Dcache.m_demand_miss_rate"),
-        "l1i_miss_rate": parse_stat(stats_content, "board.cache_hierarchy.ruby_system.l1_controllers0.L1Icache.m_demand_miss_rate"),
-        "l2_miss_rate": parse_stat(stats_content, "board.cache_hierarchy.ruby_system.l2_controllers0.L2cache.m_demand_miss_rate"),
-        "cpu_cycles": parse_stat(stats_content, "board.processor.cores.core.numCycles"),
+        "instructions_committed": instructions,
+        "avg_gap_between_requests": avg_gap,
+        "l1d_hits": l1d_hits,
+        "l1d_replacements": l1_replacements,
+        "l1d_miss_rate": l1d_miss_rate,
+        "l1i_miss_rate": l1i_miss_rate,
+        "l2_miss_rate": l2_miss_rate,
+        "cpu_cycles": cpu_cycles,
     }
 
     return metrics
