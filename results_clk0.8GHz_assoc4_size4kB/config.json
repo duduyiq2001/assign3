@@ -1,0 +1,3175 @@
+{
+    "type": "Root",
+    "cxx_class": "gem5::Root",
+    "name": null,
+    "path": "root",
+    "eventq_index": 0,
+    "full_system": false,
+    "sim_quantum": 0,
+    "time_sync_enable": false,
+    "time_sync_period": 100000000000,
+    "time_sync_spin_threshold": 100000000,
+    "board": {
+        "type": "System",
+        "cxx_class": "gem5::System",
+        "name": "board",
+        "path": "board",
+        "auto_unlink_shared_backstore": false,
+        "cache_line_size": 64,
+        "eventq_index": 0,
+        "exit_on_work_items": true,
+        "init_param": 0,
+        "m5ops_base": 0,
+        "mem_mode": "timing",
+        "mem_ranges": [
+            "0:33554432"
+        ],
+        "memories": [
+            "board.memory.mem_ctrl.dram"
+        ],
+        "mmap_using_noreserve": false,
+        "multi_thread": false,
+        "num_work_ids": 16,
+        "readfile": "",
+        "redirect_paths": [],
+        "shadow_rom_ranges": [],
+        "shared_backstore": "",
+        "symbolfile": "",
+        "thermal_components": [],
+        "thermal_model": null,
+        "work_begin_ckpt_count": 0,
+        "work_begin_cpu_id_exit": -1,
+        "work_begin_exit_count": 0,
+        "work_cpus_ckpt_count": 0,
+        "work_end_ckpt_count": 0,
+        "work_end_exit_count": 0,
+        "work_item_id": -1,
+        "workload": {
+            "type": "X86EmuLinux",
+            "cxx_class": "gem5::X86ISA::EmuLinux",
+            "name": "workload",
+            "path": "board.workload",
+            "eventq_index": 0,
+            "remote_gdb_port": "#7000",
+            "wait_for_remote_gdb": false
+        },
+        "cache_hierarchy": {
+            "type": "SubSystem",
+            "cxx_class": "gem5::SubSystem",
+            "name": "cache_hierarchy",
+            "path": "board.cache_hierarchy",
+            "eventq_index": 0,
+            "thermal_domain": null,
+            "ruby_system": {
+                "type": "RubySystem",
+                "cxx_class": "gem5::ruby::RubySystem",
+                "name": "ruby_system",
+                "path": "board.cache_hierarchy.ruby_system",
+                "access_backing_store": false,
+                "all_instructions": false,
+                "block_size_bytes": 64,
+                "clk_domain": "board.clk_domain",
+                "eventq_index": 0,
+                "hot_lines": false,
+                "memory_size_bits": 64,
+                "num_of_sequencers": 1,
+                "number_of_virtual_networks": 3,
+                "phys_mem": null,
+                "power_model": [],
+                "power_state": {
+                    "type": "PowerState",
+                    "cxx_class": "gem5::PowerState",
+                    "name": "power_state",
+                    "path": "board.cache_hierarchy.ruby_system.power_state",
+                    "clk_gate_bins": 20,
+                    "clk_gate_max": 1000000000000,
+                    "clk_gate_min": 1000,
+                    "default_state": "UNDEFINED",
+                    "eventq_index": 0,
+                    "leaders": [],
+                    "possible_states": []
+                },
+                "randomization": false,
+                "system": "board",
+                "directory_controllers": [
+                    {
+                        "type": "Directory_Controller",
+                        "cxx_class": "gem5::ruby::Directory_Controller",
+                        "name": "directory_controllers",
+                        "path": "board.cache_hierarchy.ruby_system.directory_controllers",
+                        "addr_ranges": [
+                            "0:33554432"
+                        ],
+                        "buffer_size": 0,
+                        "clk_domain": "board.clk_domain",
+                        "cluster_id": 0,
+                        "directory": {
+                            "type": "RubyDirectoryMemory",
+                            "cxx_class": "gem5::ruby::DirectoryMemory",
+                            "name": "directory",
+                            "path": "board.cache_hierarchy.ruby_system.directory_controllers.directory",
+                            "addr_ranges": [
+                                "0:33554432"
+                            ],
+                            "eventq_index": 0
+                        },
+                        "directory_latency": 6,
+                        "downstream_destinations": [],
+                        "eventq_index": 0,
+                        "mandatory_queue_latency": 1,
+                        "number_of_TBEs": 256,
+                        "power_model": [],
+                        "power_state": {
+                            "type": "PowerState",
+                            "cxx_class": "gem5::PowerState",
+                            "name": "power_state",
+                            "path": "board.cache_hierarchy.ruby_system.directory_controllers.power_state",
+                            "clk_gate_bins": 20,
+                            "clk_gate_max": 1000000000000,
+                            "clk_gate_min": 1000,
+                            "default_state": "UNDEFINED",
+                            "eventq_index": 0,
+                            "leaders": [],
+                            "possible_states": []
+                        },
+                        "recycle_latency": 10,
+                        "requestToDir": {
+                            "type": "MessageBuffer",
+                            "cxx_class": "gem5::ruby::MessageBuffer",
+                            "name": "requestToDir",
+                            "path": "board.cache_hierarchy.ruby_system.directory_controllers.requestToDir",
+                            "allow_zero_latency": false,
+                            "buffer_size": 0,
+                            "eventq_index": 0,
+                            "max_dequeue_rate": 0,
+                            "ordered": false,
+                            "randomization": "ruby_system",
+                            "routing_priority": 0,
+                            "in_port": {
+                                "role": "GEM5 RESPONDER",
+                                "peer": "board.cache_hierarchy.ruby_system.network.out_port[5]",
+                                "is_source": "False"
+                            }
+                        },
+                        "requestToMemory": {
+                            "type": "MessageBuffer",
+                            "cxx_class": "gem5::ruby::MessageBuffer",
+                            "name": "requestToMemory",
+                            "path": "board.cache_hierarchy.ruby_system.directory_controllers.requestToMemory",
+                            "allow_zero_latency": false,
+                            "buffer_size": 0,
+                            "eventq_index": 0,
+                            "max_dequeue_rate": 0,
+                            "ordered": false,
+                            "randomization": "ruby_system",
+                            "routing_priority": 0
+                        },
+                        "responseFromDir": {
+                            "type": "MessageBuffer",
+                            "cxx_class": "gem5::ruby::MessageBuffer",
+                            "name": "responseFromDir",
+                            "path": "board.cache_hierarchy.ruby_system.directory_controllers.responseFromDir",
+                            "allow_zero_latency": false,
+                            "buffer_size": 0,
+                            "eventq_index": 0,
+                            "max_dequeue_rate": 0,
+                            "ordered": false,
+                            "randomization": "ruby_system",
+                            "routing_priority": 0,
+                            "out_port": {
+                                "role": "GEM5 REQUESTOR",
+                                "peer": "board.cache_hierarchy.ruby_system.network.in_port[6]",
+                                "is_source": "True"
+                            }
+                        },
+                        "responseFromMemory": {
+                            "type": "MessageBuffer",
+                            "cxx_class": "gem5::ruby::MessageBuffer",
+                            "name": "responseFromMemory",
+                            "path": "board.cache_hierarchy.ruby_system.directory_controllers.responseFromMemory",
+                            "allow_zero_latency": false,
+                            "buffer_size": 0,
+                            "eventq_index": 0,
+                            "max_dequeue_rate": 0,
+                            "ordered": false,
+                            "randomization": "ruby_system",
+                            "routing_priority": 0
+                        },
+                        "responseToDir": {
+                            "type": "MessageBuffer",
+                            "cxx_class": "gem5::ruby::MessageBuffer",
+                            "name": "responseToDir",
+                            "path": "board.cache_hierarchy.ruby_system.directory_controllers.responseToDir",
+                            "allow_zero_latency": false,
+                            "buffer_size": 0,
+                            "eventq_index": 0,
+                            "max_dequeue_rate": 0,
+                            "ordered": false,
+                            "randomization": "ruby_system",
+                            "routing_priority": 0,
+                            "in_port": {
+                                "role": "GEM5 RESPONDER",
+                                "peer": "board.cache_hierarchy.ruby_system.network.out_port[6]",
+                                "is_source": "False"
+                            }
+                        },
+                        "ruby_system": "board.cache_hierarchy.ruby_system",
+                        "system": "board",
+                        "to_mem_ctrl_latency": 1,
+                        "transitions_per_cycle": 32,
+                        "upstream_destinations": [],
+                        "version": 0,
+                        "memory_out_port": {
+                            "role": "GEM5 REQUESTOR",
+                            "peer": "board.memory.mem_ctrl.port",
+                            "is_source": "True"
+                        }
+                    }
+                ],
+                "l1_controllers": [
+                    {
+                        "type": "L1Cache_Controller",
+                        "cxx_class": "gem5::ruby::L1Cache_Controller",
+                        "name": "l1_controllers",
+                        "path": "board.cache_hierarchy.ruby_system.l1_controllers",
+                        "L1Dcache": {
+                            "type": "RubyCache",
+                            "cxx_class": "gem5::ruby::CacheMemory",
+                            "name": "L1Dcache",
+                            "path": "board.cache_hierarchy.ruby_system.l1_controllers.L1Dcache",
+                            "assoc": 4,
+                            "atomicALUs": 64,
+                            "atomicLatency": 0,
+                            "block_size": 0,
+                            "dataAccessLatency": 1,
+                            "dataArrayBanks": 1,
+                            "eventq_index": 0,
+                            "is_icache": false,
+                            "replacement_policy": {
+                                "type": "TreePLRURP",
+                                "cxx_class": "gem5::replacement_policy::TreePLRU",
+                                "name": "replacement_policy",
+                                "path": "board.cache_hierarchy.ruby_system.l1_controllers.L1Dcache.replacement_policy",
+                                "eventq_index": 0,
+                                "num_leaves": 4
+                            },
+                            "resourceStalls": false,
+                            "ruby_system": "board.cache_hierarchy.ruby_system",
+                            "size": 4096,
+                            "start_index_bit": 6,
+                            "tagAccessLatency": 1,
+                            "tagArrayBanks": 1
+                        },
+                        "L1Icache": {
+                            "type": "RubyCache",
+                            "cxx_class": "gem5::ruby::CacheMemory",
+                            "name": "L1Icache",
+                            "path": "board.cache_hierarchy.ruby_system.l1_controllers.L1Icache",
+                            "assoc": 2,
+                            "atomicALUs": 64,
+                            "atomicLatency": 0,
+                            "block_size": 0,
+                            "dataAccessLatency": 1,
+                            "dataArrayBanks": 1,
+                            "eventq_index": 0,
+                            "is_icache": true,
+                            "replacement_policy": {
+                                "type": "TreePLRURP",
+                                "cxx_class": "gem5::replacement_policy::TreePLRU",
+                                "name": "replacement_policy",
+                                "path": "board.cache_hierarchy.ruby_system.l1_controllers.L1Icache.replacement_policy",
+                                "eventq_index": 0,
+                                "num_leaves": 2
+                            },
+                            "resourceStalls": false,
+                            "ruby_system": "board.cache_hierarchy.ruby_system",
+                            "size": 16384,
+                            "start_index_bit": 6,
+                            "tagAccessLatency": 1,
+                            "tagArrayBanks": 1
+                        },
+                        "addr_ranges": [
+                            "0:18446744073709551615"
+                        ],
+                        "buffer_size": 0,
+                        "clk_domain": "board.clk_domain",
+                        "cluster_id": 0,
+                        "downstream_destinations": [],
+                        "enable_prefetch": false,
+                        "eventq_index": 0,
+                        "l1_request_latency": 2,
+                        "l1_response_latency": 2,
+                        "l2_select_num_bits": 0,
+                        "mandatoryQueue": {
+                            "type": "MessageBuffer",
+                            "cxx_class": "gem5::ruby::MessageBuffer",
+                            "name": "mandatoryQueue",
+                            "path": "board.cache_hierarchy.ruby_system.l1_controllers.mandatoryQueue",
+                            "allow_zero_latency": false,
+                            "buffer_size": 0,
+                            "eventq_index": 0,
+                            "max_dequeue_rate": 0,
+                            "ordered": false,
+                            "randomization": "ruby_system",
+                            "routing_priority": 0
+                        },
+                        "mandatory_queue_latency": 1,
+                        "number_of_TBEs": 256,
+                        "optionalQueue": {
+                            "type": "MessageBuffer",
+                            "cxx_class": "gem5::ruby::MessageBuffer",
+                            "name": "optionalQueue",
+                            "path": "board.cache_hierarchy.ruby_system.l1_controllers.optionalQueue",
+                            "allow_zero_latency": false,
+                            "buffer_size": 0,
+                            "eventq_index": 0,
+                            "max_dequeue_rate": 0,
+                            "ordered": false,
+                            "randomization": "ruby_system",
+                            "routing_priority": 0
+                        },
+                        "power_model": [],
+                        "power_state": {
+                            "type": "PowerState",
+                            "cxx_class": "gem5::PowerState",
+                            "name": "power_state",
+                            "path": "board.cache_hierarchy.ruby_system.l1_controllers.power_state",
+                            "clk_gate_bins": 20,
+                            "clk_gate_max": 1000000000000,
+                            "clk_gate_min": 1000,
+                            "default_state": "UNDEFINED",
+                            "eventq_index": 0,
+                            "leaders": [],
+                            "possible_states": []
+                        },
+                        "prefetcher": {
+                            "type": "RubyPrefetcher",
+                            "cxx_class": "gem5::ruby::RubyPrefetcher",
+                            "name": "prefetcher",
+                            "path": "board.cache_hierarchy.ruby_system.l1_controllers.prefetcher",
+                            "cross_page": false,
+                            "eventq_index": 0,
+                            "nonunit_filter": 8,
+                            "num_startup_pfs": 1,
+                            "num_streams": 4,
+                            "page_shift": 12,
+                            "train_misses": 4,
+                            "unit_filter": 8
+                        },
+                        "recycle_latency": 10,
+                        "requestFromL1Cache": {
+                            "type": "MessageBuffer",
+                            "cxx_class": "gem5::ruby::MessageBuffer",
+                            "name": "requestFromL1Cache",
+                            "path": "board.cache_hierarchy.ruby_system.l1_controllers.requestFromL1Cache",
+                            "allow_zero_latency": false,
+                            "buffer_size": 0,
+                            "eventq_index": 0,
+                            "max_dequeue_rate": 0,
+                            "ordered": false,
+                            "randomization": "ruby_system",
+                            "routing_priority": 0,
+                            "out_port": {
+                                "role": "GEM5 REQUESTOR",
+                                "peer": "board.cache_hierarchy.ruby_system.network.in_port[0]",
+                                "is_source": "True"
+                            }
+                        },
+                        "requestToL1Cache": {
+                            "type": "MessageBuffer",
+                            "cxx_class": "gem5::ruby::MessageBuffer",
+                            "name": "requestToL1Cache",
+                            "path": "board.cache_hierarchy.ruby_system.l1_controllers.requestToL1Cache",
+                            "allow_zero_latency": false,
+                            "buffer_size": 0,
+                            "eventq_index": 0,
+                            "max_dequeue_rate": 0,
+                            "ordered": false,
+                            "randomization": "ruby_system",
+                            "routing_priority": 0,
+                            "in_port": {
+                                "role": "GEM5 RESPONDER",
+                                "peer": "board.cache_hierarchy.ruby_system.network.out_port[0]",
+                                "is_source": "False"
+                            }
+                        },
+                        "responseFromL1Cache": {
+                            "type": "MessageBuffer",
+                            "cxx_class": "gem5::ruby::MessageBuffer",
+                            "name": "responseFromL1Cache",
+                            "path": "board.cache_hierarchy.ruby_system.l1_controllers.responseFromL1Cache",
+                            "allow_zero_latency": false,
+                            "buffer_size": 0,
+                            "eventq_index": 0,
+                            "max_dequeue_rate": 0,
+                            "ordered": false,
+                            "randomization": "ruby_system",
+                            "routing_priority": 0,
+                            "out_port": {
+                                "role": "GEM5 REQUESTOR",
+                                "peer": "board.cache_hierarchy.ruby_system.network.in_port[1]",
+                                "is_source": "True"
+                            }
+                        },
+                        "responseToL1Cache": {
+                            "type": "MessageBuffer",
+                            "cxx_class": "gem5::ruby::MessageBuffer",
+                            "name": "responseToL1Cache",
+                            "path": "board.cache_hierarchy.ruby_system.l1_controllers.responseToL1Cache",
+                            "allow_zero_latency": false,
+                            "buffer_size": 0,
+                            "eventq_index": 0,
+                            "max_dequeue_rate": 0,
+                            "ordered": false,
+                            "randomization": "ruby_system",
+                            "routing_priority": 0,
+                            "in_port": {
+                                "role": "GEM5 RESPONDER",
+                                "peer": "board.cache_hierarchy.ruby_system.network.out_port[1]",
+                                "is_source": "False"
+                            }
+                        },
+                        "ruby_system": "board.cache_hierarchy.ruby_system",
+                        "send_evictions": true,
+                        "sequencer": {
+                            "type": "RubySequencer",
+                            "cxx_class": "gem5::ruby::Sequencer",
+                            "name": "sequencer",
+                            "path": "board.cache_hierarchy.ruby_system.l1_controllers.sequencer",
+                            "clk_domain": "board.clk_domain",
+                            "coreid": 99,
+                            "dcache": "board.cache_hierarchy.ruby_system.l1_controllers.L1Dcache",
+                            "deadlock_threshold": 500000,
+                            "eventq_index": 0,
+                            "garnet_standalone": false,
+                            "is_cpu_sequencer": true,
+                            "max_outstanding_requests": 16,
+                            "no_retry_on_stall": false,
+                            "power_model": [],
+                            "power_state": {
+                                "type": "PowerState",
+                                "cxx_class": "gem5::PowerState",
+                                "name": "power_state",
+                                "path": "board.cache_hierarchy.ruby_system.l1_controllers.sequencer.power_state",
+                                "clk_gate_bins": 20,
+                                "clk_gate_max": 1000000000000,
+                                "clk_gate_min": 1000,
+                                "default_state": "UNDEFINED",
+                                "eventq_index": 0,
+                                "leaders": [],
+                                "possible_states": []
+                            },
+                            "ruby_system": "board.cache_hierarchy.ruby_system",
+                            "support_data_reqs": true,
+                            "support_inst_reqs": true,
+                            "system": "board",
+                            "using_ruby_tester": false,
+                            "version": 0,
+                            "in_ports": {
+                                "role": "GEM5 RESPONDER",
+                                "peer": [
+                                    "board.processor.cores.core.icache_port",
+                                    "board.processor.cores.core.dcache_port",
+                                    "board.processor.cores.core.mmu.itb.walker.port",
+                                    "board.processor.cores.core.mmu.dtb.walker.port",
+                                    "board.processor.cores.core.interrupts.int_requestor"
+                                ],
+                                "is_source": "False"
+                            },
+                            "interrupt_out_port": {
+                                "role": "GEM5 REQUESTOR",
+                                "peer": [
+                                    "board.processor.cores.core.interrupts.pio",
+                                    "board.processor.cores.core.interrupts.int_responder"
+                                ],
+                                "is_source": "True"
+                            }
+                        },
+                        "system": "board",
+                        "to_l2_latency": 1,
+                        "transitions_per_cycle": 4,
+                        "unblockFromL1Cache": {
+                            "type": "MessageBuffer",
+                            "cxx_class": "gem5::ruby::MessageBuffer",
+                            "name": "unblockFromL1Cache",
+                            "path": "board.cache_hierarchy.ruby_system.l1_controllers.unblockFromL1Cache",
+                            "allow_zero_latency": false,
+                            "buffer_size": 0,
+                            "eventq_index": 0,
+                            "max_dequeue_rate": 0,
+                            "ordered": false,
+                            "randomization": "ruby_system",
+                            "routing_priority": 0,
+                            "out_port": {
+                                "role": "GEM5 REQUESTOR",
+                                "peer": "board.cache_hierarchy.ruby_system.network.in_port[2]",
+                                "is_source": "True"
+                            }
+                        },
+                        "upstream_destinations": [],
+                        "version": 0
+                    }
+                ],
+                "l2_controllers": [
+                    {
+                        "type": "L2Cache_Controller",
+                        "cxx_class": "gem5::ruby::L2Cache_Controller",
+                        "name": "l2_controllers",
+                        "path": "board.cache_hierarchy.ruby_system.l2_controllers",
+                        "DirRequestFromL2Cache": {
+                            "type": "MessageBuffer",
+                            "cxx_class": "gem5::ruby::MessageBuffer",
+                            "name": "DirRequestFromL2Cache",
+                            "path": "board.cache_hierarchy.ruby_system.l2_controllers.DirRequestFromL2Cache",
+                            "allow_zero_latency": false,
+                            "buffer_size": 0,
+                            "eventq_index": 0,
+                            "max_dequeue_rate": 0,
+                            "ordered": false,
+                            "randomization": "ruby_system",
+                            "routing_priority": 0,
+                            "out_port": {
+                                "role": "GEM5 REQUESTOR",
+                                "peer": "board.cache_hierarchy.ruby_system.network.in_port[3]",
+                                "is_source": "True"
+                            }
+                        },
+                        "L1RequestFromL2Cache": {
+                            "type": "MessageBuffer",
+                            "cxx_class": "gem5::ruby::MessageBuffer",
+                            "name": "L1RequestFromL2Cache",
+                            "path": "board.cache_hierarchy.ruby_system.l2_controllers.L1RequestFromL2Cache",
+                            "allow_zero_latency": false,
+                            "buffer_size": 0,
+                            "eventq_index": 0,
+                            "max_dequeue_rate": 0,
+                            "ordered": false,
+                            "randomization": "ruby_system",
+                            "routing_priority": 0,
+                            "out_port": {
+                                "role": "GEM5 REQUESTOR",
+                                "peer": "board.cache_hierarchy.ruby_system.network.in_port[4]",
+                                "is_source": "True"
+                            }
+                        },
+                        "L1RequestToL2Cache": {
+                            "type": "MessageBuffer",
+                            "cxx_class": "gem5::ruby::MessageBuffer",
+                            "name": "L1RequestToL2Cache",
+                            "path": "board.cache_hierarchy.ruby_system.l2_controllers.L1RequestToL2Cache",
+                            "allow_zero_latency": false,
+                            "buffer_size": 0,
+                            "eventq_index": 0,
+                            "max_dequeue_rate": 0,
+                            "ordered": false,
+                            "randomization": "ruby_system",
+                            "routing_priority": 0,
+                            "in_port": {
+                                "role": "GEM5 RESPONDER",
+                                "peer": "board.cache_hierarchy.ruby_system.network.out_port[3]",
+                                "is_source": "False"
+                            }
+                        },
+                        "L2cache": {
+                            "type": "RubyCache",
+                            "cxx_class": "gem5::ruby::CacheMemory",
+                            "name": "L2cache",
+                            "path": "board.cache_hierarchy.ruby_system.l2_controllers.L2cache",
+                            "assoc": 8,
+                            "atomicALUs": 64,
+                            "atomicLatency": 0,
+                            "block_size": 0,
+                            "dataAccessLatency": 1,
+                            "dataArrayBanks": 1,
+                            "eventq_index": 0,
+                            "is_icache": false,
+                            "replacement_policy": {
+                                "type": "TreePLRURP",
+                                "cxx_class": "gem5::replacement_policy::TreePLRU",
+                                "name": "replacement_policy",
+                                "path": "board.cache_hierarchy.ruby_system.l2_controllers.L2cache.replacement_policy",
+                                "eventq_index": 0,
+                                "num_leaves": 8
+                            },
+                            "resourceStalls": false,
+                            "ruby_system": "board.cache_hierarchy.ruby_system",
+                            "size": 262144,
+                            "start_index_bit": 6,
+                            "tagAccessLatency": 1,
+                            "tagArrayBanks": 1
+                        },
+                        "addr_ranges": [
+                            "0:18446744073709551615"
+                        ],
+                        "buffer_size": 0,
+                        "clk_domain": "board.clk_domain",
+                        "cluster_id": 0,
+                        "downstream_destinations": [],
+                        "eventq_index": 0,
+                        "l2_request_latency": 2,
+                        "l2_response_latency": 2,
+                        "mandatory_queue_latency": 1,
+                        "number_of_TBEs": 256,
+                        "power_model": [],
+                        "power_state": {
+                            "type": "PowerState",
+                            "cxx_class": "gem5::PowerState",
+                            "name": "power_state",
+                            "path": "board.cache_hierarchy.ruby_system.l2_controllers.power_state",
+                            "clk_gate_bins": 20,
+                            "clk_gate_max": 1000000000000,
+                            "clk_gate_min": 1000,
+                            "default_state": "UNDEFINED",
+                            "eventq_index": 0,
+                            "leaders": [],
+                            "possible_states": []
+                        },
+                        "recycle_latency": 10,
+                        "responseFromL2Cache": {
+                            "type": "MessageBuffer",
+                            "cxx_class": "gem5::ruby::MessageBuffer",
+                            "name": "responseFromL2Cache",
+                            "path": "board.cache_hierarchy.ruby_system.l2_controllers.responseFromL2Cache",
+                            "allow_zero_latency": false,
+                            "buffer_size": 0,
+                            "eventq_index": 0,
+                            "max_dequeue_rate": 0,
+                            "ordered": false,
+                            "randomization": "ruby_system",
+                            "routing_priority": 0,
+                            "out_port": {
+                                "role": "GEM5 REQUESTOR",
+                                "peer": "board.cache_hierarchy.ruby_system.network.in_port[5]",
+                                "is_source": "True"
+                            }
+                        },
+                        "responseToL2Cache": {
+                            "type": "MessageBuffer",
+                            "cxx_class": "gem5::ruby::MessageBuffer",
+                            "name": "responseToL2Cache",
+                            "path": "board.cache_hierarchy.ruby_system.l2_controllers.responseToL2Cache",
+                            "allow_zero_latency": false,
+                            "buffer_size": 0,
+                            "eventq_index": 0,
+                            "max_dequeue_rate": 0,
+                            "ordered": false,
+                            "randomization": "ruby_system",
+                            "routing_priority": 0,
+                            "in_port": {
+                                "role": "GEM5 RESPONDER",
+                                "peer": "board.cache_hierarchy.ruby_system.network.out_port[4]",
+                                "is_source": "False"
+                            }
+                        },
+                        "ruby_system": "board.cache_hierarchy.ruby_system",
+                        "system": "board",
+                        "to_l1_latency": 1,
+                        "transitions_per_cycle": 4,
+                        "unblockToL2Cache": {
+                            "type": "MessageBuffer",
+                            "cxx_class": "gem5::ruby::MessageBuffer",
+                            "name": "unblockToL2Cache",
+                            "path": "board.cache_hierarchy.ruby_system.l2_controllers.unblockToL2Cache",
+                            "allow_zero_latency": false,
+                            "buffer_size": 0,
+                            "eventq_index": 0,
+                            "max_dequeue_rate": 0,
+                            "ordered": false,
+                            "randomization": "ruby_system",
+                            "routing_priority": 0,
+                            "in_port": {
+                                "role": "GEM5 RESPONDER",
+                                "peer": "board.cache_hierarchy.ruby_system.network.out_port[2]",
+                                "is_source": "False"
+                            }
+                        },
+                        "upstream_destinations": [],
+                        "version": 0
+                    }
+                ],
+                "network": {
+                    "type": "SimpleNetwork",
+                    "cxx_class": "gem5::ruby::SimpleNetwork",
+                    "name": "network",
+                    "path": "board.cache_hierarchy.ruby_system.network",
+                    "buffer_size": 0,
+                    "clk_domain": "board.clk_domain",
+                    "control_msg_size": 8,
+                    "data_msg_size": 64,
+                    "endpoint_bandwidth": 1000,
+                    "eventq_index": 0,
+                    "ext_links": [
+                        {
+                            "type": "SimpleExtLink",
+                            "cxx_class": "gem5::ruby::SimpleExtLink",
+                            "name": "ext_links0",
+                            "path": "board.cache_hierarchy.ruby_system.network.ext_links0",
+                            "bandwidth_factor": 16,
+                            "eventq_index": 0,
+                            "ext_node": "board.cache_hierarchy.ruby_system.l1_controllers",
+                            "int_node": "board.cache_hierarchy.ruby_system.network.routers0",
+                            "latency": 1,
+                            "link_id": 0,
+                            "supported_vnets": [],
+                            "weight": 1
+                        },
+                        {
+                            "type": "SimpleExtLink",
+                            "cxx_class": "gem5::ruby::SimpleExtLink",
+                            "name": "ext_links1",
+                            "path": "board.cache_hierarchy.ruby_system.network.ext_links1",
+                            "bandwidth_factor": 16,
+                            "eventq_index": 0,
+                            "ext_node": "board.cache_hierarchy.ruby_system.l2_controllers",
+                            "int_node": "board.cache_hierarchy.ruby_system.network.routers1",
+                            "latency": 1,
+                            "link_id": 1,
+                            "supported_vnets": [],
+                            "weight": 1
+                        },
+                        {
+                            "type": "SimpleExtLink",
+                            "cxx_class": "gem5::ruby::SimpleExtLink",
+                            "name": "ext_links2",
+                            "path": "board.cache_hierarchy.ruby_system.network.ext_links2",
+                            "bandwidth_factor": 16,
+                            "eventq_index": 0,
+                            "ext_node": "board.cache_hierarchy.ruby_system.directory_controllers",
+                            "int_node": "board.cache_hierarchy.ruby_system.network.routers2",
+                            "latency": 1,
+                            "link_id": 2,
+                            "supported_vnets": [],
+                            "weight": 1
+                        }
+                    ],
+                    "int_links": [
+                        {
+                            "type": "SimpleIntLink",
+                            "cxx_class": "gem5::ruby::SimpleIntLink",
+                            "name": "int_links0",
+                            "path": "board.cache_hierarchy.ruby_system.network.int_links0",
+                            "bandwidth_factor": 16,
+                            "buffers": [
+                                {
+                                    "type": "MessageBuffer",
+                                    "cxx_class": "gem5::ruby::MessageBuffer",
+                                    "name": "buffers0",
+                                    "path": "board.cache_hierarchy.ruby_system.network.int_links0.buffers0",
+                                    "allow_zero_latency": false,
+                                    "buffer_size": 0,
+                                    "eventq_index": 0,
+                                    "max_dequeue_rate": 0,
+                                    "ordered": true,
+                                    "randomization": "ruby_system",
+                                    "routing_priority": 0
+                                },
+                                {
+                                    "type": "MessageBuffer",
+                                    "cxx_class": "gem5::ruby::MessageBuffer",
+                                    "name": "buffers1",
+                                    "path": "board.cache_hierarchy.ruby_system.network.int_links0.buffers1",
+                                    "allow_zero_latency": false,
+                                    "buffer_size": 0,
+                                    "eventq_index": 0,
+                                    "max_dequeue_rate": 0,
+                                    "ordered": true,
+                                    "randomization": "ruby_system",
+                                    "routing_priority": 0
+                                },
+                                {
+                                    "type": "MessageBuffer",
+                                    "cxx_class": "gem5::ruby::MessageBuffer",
+                                    "name": "buffers2",
+                                    "path": "board.cache_hierarchy.ruby_system.network.int_links0.buffers2",
+                                    "allow_zero_latency": false,
+                                    "buffer_size": 0,
+                                    "eventq_index": 0,
+                                    "max_dequeue_rate": 0,
+                                    "ordered": true,
+                                    "randomization": "ruby_system",
+                                    "routing_priority": 0
+                                }
+                            ],
+                            "dst_inport": "",
+                            "dst_node": "board.cache_hierarchy.ruby_system.network.routers1",
+                            "eventq_index": 0,
+                            "latency": 1,
+                            "link_id": 1,
+                            "src_node": "board.cache_hierarchy.ruby_system.network.routers0",
+                            "src_outport": "",
+                            "supported_vnets": [],
+                            "weight": 1
+                        },
+                        {
+                            "type": "SimpleIntLink",
+                            "cxx_class": "gem5::ruby::SimpleIntLink",
+                            "name": "int_links1",
+                            "path": "board.cache_hierarchy.ruby_system.network.int_links1",
+                            "bandwidth_factor": 16,
+                            "buffers": [
+                                {
+                                    "type": "MessageBuffer",
+                                    "cxx_class": "gem5::ruby::MessageBuffer",
+                                    "name": "buffers0",
+                                    "path": "board.cache_hierarchy.ruby_system.network.int_links1.buffers0",
+                                    "allow_zero_latency": false,
+                                    "buffer_size": 0,
+                                    "eventq_index": 0,
+                                    "max_dequeue_rate": 0,
+                                    "ordered": true,
+                                    "randomization": "ruby_system",
+                                    "routing_priority": 0
+                                },
+                                {
+                                    "type": "MessageBuffer",
+                                    "cxx_class": "gem5::ruby::MessageBuffer",
+                                    "name": "buffers1",
+                                    "path": "board.cache_hierarchy.ruby_system.network.int_links1.buffers1",
+                                    "allow_zero_latency": false,
+                                    "buffer_size": 0,
+                                    "eventq_index": 0,
+                                    "max_dequeue_rate": 0,
+                                    "ordered": true,
+                                    "randomization": "ruby_system",
+                                    "routing_priority": 0
+                                },
+                                {
+                                    "type": "MessageBuffer",
+                                    "cxx_class": "gem5::ruby::MessageBuffer",
+                                    "name": "buffers2",
+                                    "path": "board.cache_hierarchy.ruby_system.network.int_links1.buffers2",
+                                    "allow_zero_latency": false,
+                                    "buffer_size": 0,
+                                    "eventq_index": 0,
+                                    "max_dequeue_rate": 0,
+                                    "ordered": true,
+                                    "randomization": "ruby_system",
+                                    "routing_priority": 0
+                                }
+                            ],
+                            "dst_inport": "",
+                            "dst_node": "board.cache_hierarchy.ruby_system.network.routers2",
+                            "eventq_index": 0,
+                            "latency": 1,
+                            "link_id": 2,
+                            "src_node": "board.cache_hierarchy.ruby_system.network.routers0",
+                            "src_outport": "",
+                            "supported_vnets": [],
+                            "weight": 1
+                        },
+                        {
+                            "type": "SimpleIntLink",
+                            "cxx_class": "gem5::ruby::SimpleIntLink",
+                            "name": "int_links2",
+                            "path": "board.cache_hierarchy.ruby_system.network.int_links2",
+                            "bandwidth_factor": 16,
+                            "buffers": [
+                                {
+                                    "type": "MessageBuffer",
+                                    "cxx_class": "gem5::ruby::MessageBuffer",
+                                    "name": "buffers0",
+                                    "path": "board.cache_hierarchy.ruby_system.network.int_links2.buffers0",
+                                    "allow_zero_latency": false,
+                                    "buffer_size": 0,
+                                    "eventq_index": 0,
+                                    "max_dequeue_rate": 0,
+                                    "ordered": true,
+                                    "randomization": "ruby_system",
+                                    "routing_priority": 0
+                                },
+                                {
+                                    "type": "MessageBuffer",
+                                    "cxx_class": "gem5::ruby::MessageBuffer",
+                                    "name": "buffers1",
+                                    "path": "board.cache_hierarchy.ruby_system.network.int_links2.buffers1",
+                                    "allow_zero_latency": false,
+                                    "buffer_size": 0,
+                                    "eventq_index": 0,
+                                    "max_dequeue_rate": 0,
+                                    "ordered": true,
+                                    "randomization": "ruby_system",
+                                    "routing_priority": 0
+                                },
+                                {
+                                    "type": "MessageBuffer",
+                                    "cxx_class": "gem5::ruby::MessageBuffer",
+                                    "name": "buffers2",
+                                    "path": "board.cache_hierarchy.ruby_system.network.int_links2.buffers2",
+                                    "allow_zero_latency": false,
+                                    "buffer_size": 0,
+                                    "eventq_index": 0,
+                                    "max_dequeue_rate": 0,
+                                    "ordered": true,
+                                    "randomization": "ruby_system",
+                                    "routing_priority": 0
+                                }
+                            ],
+                            "dst_inport": "",
+                            "dst_node": "board.cache_hierarchy.ruby_system.network.routers0",
+                            "eventq_index": 0,
+                            "latency": 1,
+                            "link_id": 3,
+                            "src_node": "board.cache_hierarchy.ruby_system.network.routers1",
+                            "src_outport": "",
+                            "supported_vnets": [],
+                            "weight": 1
+                        },
+                        {
+                            "type": "SimpleIntLink",
+                            "cxx_class": "gem5::ruby::SimpleIntLink",
+                            "name": "int_links3",
+                            "path": "board.cache_hierarchy.ruby_system.network.int_links3",
+                            "bandwidth_factor": 16,
+                            "buffers": [
+                                {
+                                    "type": "MessageBuffer",
+                                    "cxx_class": "gem5::ruby::MessageBuffer",
+                                    "name": "buffers0",
+                                    "path": "board.cache_hierarchy.ruby_system.network.int_links3.buffers0",
+                                    "allow_zero_latency": false,
+                                    "buffer_size": 0,
+                                    "eventq_index": 0,
+                                    "max_dequeue_rate": 0,
+                                    "ordered": true,
+                                    "randomization": "ruby_system",
+                                    "routing_priority": 0
+                                },
+                                {
+                                    "type": "MessageBuffer",
+                                    "cxx_class": "gem5::ruby::MessageBuffer",
+                                    "name": "buffers1",
+                                    "path": "board.cache_hierarchy.ruby_system.network.int_links3.buffers1",
+                                    "allow_zero_latency": false,
+                                    "buffer_size": 0,
+                                    "eventq_index": 0,
+                                    "max_dequeue_rate": 0,
+                                    "ordered": true,
+                                    "randomization": "ruby_system",
+                                    "routing_priority": 0
+                                },
+                                {
+                                    "type": "MessageBuffer",
+                                    "cxx_class": "gem5::ruby::MessageBuffer",
+                                    "name": "buffers2",
+                                    "path": "board.cache_hierarchy.ruby_system.network.int_links3.buffers2",
+                                    "allow_zero_latency": false,
+                                    "buffer_size": 0,
+                                    "eventq_index": 0,
+                                    "max_dequeue_rate": 0,
+                                    "ordered": true,
+                                    "randomization": "ruby_system",
+                                    "routing_priority": 0
+                                }
+                            ],
+                            "dst_inport": "",
+                            "dst_node": "board.cache_hierarchy.ruby_system.network.routers2",
+                            "eventq_index": 0,
+                            "latency": 1,
+                            "link_id": 4,
+                            "src_node": "board.cache_hierarchy.ruby_system.network.routers1",
+                            "src_outport": "",
+                            "supported_vnets": [],
+                            "weight": 1
+                        },
+                        {
+                            "type": "SimpleIntLink",
+                            "cxx_class": "gem5::ruby::SimpleIntLink",
+                            "name": "int_links4",
+                            "path": "board.cache_hierarchy.ruby_system.network.int_links4",
+                            "bandwidth_factor": 16,
+                            "buffers": [
+                                {
+                                    "type": "MessageBuffer",
+                                    "cxx_class": "gem5::ruby::MessageBuffer",
+                                    "name": "buffers0",
+                                    "path": "board.cache_hierarchy.ruby_system.network.int_links4.buffers0",
+                                    "allow_zero_latency": false,
+                                    "buffer_size": 0,
+                                    "eventq_index": 0,
+                                    "max_dequeue_rate": 0,
+                                    "ordered": true,
+                                    "randomization": "ruby_system",
+                                    "routing_priority": 0
+                                },
+                                {
+                                    "type": "MessageBuffer",
+                                    "cxx_class": "gem5::ruby::MessageBuffer",
+                                    "name": "buffers1",
+                                    "path": "board.cache_hierarchy.ruby_system.network.int_links4.buffers1",
+                                    "allow_zero_latency": false,
+                                    "buffer_size": 0,
+                                    "eventq_index": 0,
+                                    "max_dequeue_rate": 0,
+                                    "ordered": true,
+                                    "randomization": "ruby_system",
+                                    "routing_priority": 0
+                                },
+                                {
+                                    "type": "MessageBuffer",
+                                    "cxx_class": "gem5::ruby::MessageBuffer",
+                                    "name": "buffers2",
+                                    "path": "board.cache_hierarchy.ruby_system.network.int_links4.buffers2",
+                                    "allow_zero_latency": false,
+                                    "buffer_size": 0,
+                                    "eventq_index": 0,
+                                    "max_dequeue_rate": 0,
+                                    "ordered": true,
+                                    "randomization": "ruby_system",
+                                    "routing_priority": 0
+                                }
+                            ],
+                            "dst_inport": "",
+                            "dst_node": "board.cache_hierarchy.ruby_system.network.routers0",
+                            "eventq_index": 0,
+                            "latency": 1,
+                            "link_id": 5,
+                            "src_node": "board.cache_hierarchy.ruby_system.network.routers2",
+                            "src_outport": "",
+                            "supported_vnets": [],
+                            "weight": 1
+                        },
+                        {
+                            "type": "SimpleIntLink",
+                            "cxx_class": "gem5::ruby::SimpleIntLink",
+                            "name": "int_links5",
+                            "path": "board.cache_hierarchy.ruby_system.network.int_links5",
+                            "bandwidth_factor": 16,
+                            "buffers": [
+                                {
+                                    "type": "MessageBuffer",
+                                    "cxx_class": "gem5::ruby::MessageBuffer",
+                                    "name": "buffers0",
+                                    "path": "board.cache_hierarchy.ruby_system.network.int_links5.buffers0",
+                                    "allow_zero_latency": false,
+                                    "buffer_size": 0,
+                                    "eventq_index": 0,
+                                    "max_dequeue_rate": 0,
+                                    "ordered": true,
+                                    "randomization": "ruby_system",
+                                    "routing_priority": 0
+                                },
+                                {
+                                    "type": "MessageBuffer",
+                                    "cxx_class": "gem5::ruby::MessageBuffer",
+                                    "name": "buffers1",
+                                    "path": "board.cache_hierarchy.ruby_system.network.int_links5.buffers1",
+                                    "allow_zero_latency": false,
+                                    "buffer_size": 0,
+                                    "eventq_index": 0,
+                                    "max_dequeue_rate": 0,
+                                    "ordered": true,
+                                    "randomization": "ruby_system",
+                                    "routing_priority": 0
+                                },
+                                {
+                                    "type": "MessageBuffer",
+                                    "cxx_class": "gem5::ruby::MessageBuffer",
+                                    "name": "buffers2",
+                                    "path": "board.cache_hierarchy.ruby_system.network.int_links5.buffers2",
+                                    "allow_zero_latency": false,
+                                    "buffer_size": 0,
+                                    "eventq_index": 0,
+                                    "max_dequeue_rate": 0,
+                                    "ordered": true,
+                                    "randomization": "ruby_system",
+                                    "routing_priority": 0
+                                }
+                            ],
+                            "dst_inport": "",
+                            "dst_node": "board.cache_hierarchy.ruby_system.network.routers1",
+                            "eventq_index": 0,
+                            "latency": 1,
+                            "link_id": 6,
+                            "src_node": "board.cache_hierarchy.ruby_system.network.routers2",
+                            "src_outport": "",
+                            "supported_vnets": [],
+                            "weight": 1
+                        }
+                    ],
+                    "netifs": [],
+                    "number_of_virtual_networks": 3,
+                    "physical_vnets_bandwidth": [],
+                    "physical_vnets_channels": [],
+                    "power_model": [],
+                    "power_state": {
+                        "type": "PowerState",
+                        "cxx_class": "gem5::PowerState",
+                        "name": "power_state",
+                        "path": "board.cache_hierarchy.ruby_system.network.power_state",
+                        "clk_gate_bins": 20,
+                        "clk_gate_max": 1000000000000,
+                        "clk_gate_min": 1000,
+                        "default_state": "UNDEFINED",
+                        "eventq_index": 0,
+                        "leaders": [],
+                        "possible_states": []
+                    },
+                    "routers": [
+                        {
+                            "type": "Switch",
+                            "cxx_class": "gem5::ruby::Switch",
+                            "name": "routers0",
+                            "path": "board.cache_hierarchy.ruby_system.network.routers0",
+                            "clk_domain": "board.clk_domain",
+                            "eventq_index": 0,
+                            "ext_routing_latency": 1,
+                            "int_routing_latency": 1,
+                            "latency": 1,
+                            "port_buffers": [
+                                {
+                                    "type": "MessageBuffer",
+                                    "cxx_class": "gem5::ruby::MessageBuffer",
+                                    "name": "port_buffers0",
+                                    "path": "board.cache_hierarchy.ruby_system.network.routers0.port_buffers0",
+                                    "allow_zero_latency": true,
+                                    "buffer_size": 0,
+                                    "eventq_index": 0,
+                                    "max_dequeue_rate": 0,
+                                    "ordered": true,
+                                    "randomization": "ruby_system",
+                                    "routing_priority": 0
+                                },
+                                {
+                                    "type": "MessageBuffer",
+                                    "cxx_class": "gem5::ruby::MessageBuffer",
+                                    "name": "port_buffers1",
+                                    "path": "board.cache_hierarchy.ruby_system.network.routers0.port_buffers1",
+                                    "allow_zero_latency": true,
+                                    "buffer_size": 0,
+                                    "eventq_index": 0,
+                                    "max_dequeue_rate": 0,
+                                    "ordered": true,
+                                    "randomization": "ruby_system",
+                                    "routing_priority": 0
+                                },
+                                {
+                                    "type": "MessageBuffer",
+                                    "cxx_class": "gem5::ruby::MessageBuffer",
+                                    "name": "port_buffers2",
+                                    "path": "board.cache_hierarchy.ruby_system.network.routers0.port_buffers2",
+                                    "allow_zero_latency": true,
+                                    "buffer_size": 0,
+                                    "eventq_index": 0,
+                                    "max_dequeue_rate": 0,
+                                    "ordered": true,
+                                    "randomization": "ruby_system",
+                                    "routing_priority": 0
+                                },
+                                {
+                                    "type": "MessageBuffer",
+                                    "cxx_class": "gem5::ruby::MessageBuffer",
+                                    "name": "port_buffers3",
+                                    "path": "board.cache_hierarchy.ruby_system.network.routers0.port_buffers3",
+                                    "allow_zero_latency": true,
+                                    "buffer_size": 0,
+                                    "eventq_index": 0,
+                                    "max_dequeue_rate": 0,
+                                    "ordered": true,
+                                    "randomization": "ruby_system",
+                                    "routing_priority": 0
+                                },
+                                {
+                                    "type": "MessageBuffer",
+                                    "cxx_class": "gem5::ruby::MessageBuffer",
+                                    "name": "port_buffers4",
+                                    "path": "board.cache_hierarchy.ruby_system.network.routers0.port_buffers4",
+                                    "allow_zero_latency": true,
+                                    "buffer_size": 0,
+                                    "eventq_index": 0,
+                                    "max_dequeue_rate": 0,
+                                    "ordered": true,
+                                    "randomization": "ruby_system",
+                                    "routing_priority": 0
+                                },
+                                {
+                                    "type": "MessageBuffer",
+                                    "cxx_class": "gem5::ruby::MessageBuffer",
+                                    "name": "port_buffers5",
+                                    "path": "board.cache_hierarchy.ruby_system.network.routers0.port_buffers5",
+                                    "allow_zero_latency": true,
+                                    "buffer_size": 0,
+                                    "eventq_index": 0,
+                                    "max_dequeue_rate": 0,
+                                    "ordered": true,
+                                    "randomization": "ruby_system",
+                                    "routing_priority": 0
+                                },
+                                {
+                                    "type": "MessageBuffer",
+                                    "cxx_class": "gem5::ruby::MessageBuffer",
+                                    "name": "port_buffers6",
+                                    "path": "board.cache_hierarchy.ruby_system.network.routers0.port_buffers6",
+                                    "allow_zero_latency": true,
+                                    "buffer_size": 0,
+                                    "eventq_index": 0,
+                                    "max_dequeue_rate": 0,
+                                    "ordered": true,
+                                    "randomization": "ruby_system",
+                                    "routing_priority": 0
+                                },
+                                {
+                                    "type": "MessageBuffer",
+                                    "cxx_class": "gem5::ruby::MessageBuffer",
+                                    "name": "port_buffers7",
+                                    "path": "board.cache_hierarchy.ruby_system.network.routers0.port_buffers7",
+                                    "allow_zero_latency": true,
+                                    "buffer_size": 0,
+                                    "eventq_index": 0,
+                                    "max_dequeue_rate": 0,
+                                    "ordered": true,
+                                    "randomization": "ruby_system",
+                                    "routing_priority": 0
+                                },
+                                {
+                                    "type": "MessageBuffer",
+                                    "cxx_class": "gem5::ruby::MessageBuffer",
+                                    "name": "port_buffers8",
+                                    "path": "board.cache_hierarchy.ruby_system.network.routers0.port_buffers8",
+                                    "allow_zero_latency": true,
+                                    "buffer_size": 0,
+                                    "eventq_index": 0,
+                                    "max_dequeue_rate": 0,
+                                    "ordered": true,
+                                    "randomization": "ruby_system",
+                                    "routing_priority": 0
+                                }
+                            ],
+                            "power_model": [],
+                            "power_state": {
+                                "type": "PowerState",
+                                "cxx_class": "gem5::PowerState",
+                                "name": "power_state",
+                                "path": "board.cache_hierarchy.ruby_system.network.routers0.power_state",
+                                "clk_gate_bins": 20,
+                                "clk_gate_max": 1000000000000,
+                                "clk_gate_min": 1000,
+                                "default_state": "UNDEFINED",
+                                "eventq_index": 0,
+                                "leaders": [],
+                                "possible_states": []
+                            },
+                            "router_id": 0,
+                            "routing_unit": {
+                                "type": "WeightBased",
+                                "cxx_class": "gem5::ruby::WeightBased",
+                                "name": "routing_unit",
+                                "path": "board.cache_hierarchy.ruby_system.network.routers0.routing_unit",
+                                "adaptive_routing": false,
+                                "eventq_index": 0
+                            },
+                            "virt_nets": 3
+                        },
+                        {
+                            "type": "Switch",
+                            "cxx_class": "gem5::ruby::Switch",
+                            "name": "routers1",
+                            "path": "board.cache_hierarchy.ruby_system.network.routers1",
+                            "clk_domain": "board.clk_domain",
+                            "eventq_index": 0,
+                            "ext_routing_latency": 1,
+                            "int_routing_latency": 1,
+                            "latency": 1,
+                            "port_buffers": [
+                                {
+                                    "type": "MessageBuffer",
+                                    "cxx_class": "gem5::ruby::MessageBuffer",
+                                    "name": "port_buffers0",
+                                    "path": "board.cache_hierarchy.ruby_system.network.routers1.port_buffers0",
+                                    "allow_zero_latency": true,
+                                    "buffer_size": 0,
+                                    "eventq_index": 0,
+                                    "max_dequeue_rate": 0,
+                                    "ordered": true,
+                                    "randomization": "ruby_system",
+                                    "routing_priority": 0
+                                },
+                                {
+                                    "type": "MessageBuffer",
+                                    "cxx_class": "gem5::ruby::MessageBuffer",
+                                    "name": "port_buffers1",
+                                    "path": "board.cache_hierarchy.ruby_system.network.routers1.port_buffers1",
+                                    "allow_zero_latency": true,
+                                    "buffer_size": 0,
+                                    "eventq_index": 0,
+                                    "max_dequeue_rate": 0,
+                                    "ordered": true,
+                                    "randomization": "ruby_system",
+                                    "routing_priority": 0
+                                },
+                                {
+                                    "type": "MessageBuffer",
+                                    "cxx_class": "gem5::ruby::MessageBuffer",
+                                    "name": "port_buffers2",
+                                    "path": "board.cache_hierarchy.ruby_system.network.routers1.port_buffers2",
+                                    "allow_zero_latency": true,
+                                    "buffer_size": 0,
+                                    "eventq_index": 0,
+                                    "max_dequeue_rate": 0,
+                                    "ordered": true,
+                                    "randomization": "ruby_system",
+                                    "routing_priority": 0
+                                },
+                                {
+                                    "type": "MessageBuffer",
+                                    "cxx_class": "gem5::ruby::MessageBuffer",
+                                    "name": "port_buffers3",
+                                    "path": "board.cache_hierarchy.ruby_system.network.routers1.port_buffers3",
+                                    "allow_zero_latency": true,
+                                    "buffer_size": 0,
+                                    "eventq_index": 0,
+                                    "max_dequeue_rate": 0,
+                                    "ordered": true,
+                                    "randomization": "ruby_system",
+                                    "routing_priority": 0
+                                },
+                                {
+                                    "type": "MessageBuffer",
+                                    "cxx_class": "gem5::ruby::MessageBuffer",
+                                    "name": "port_buffers4",
+                                    "path": "board.cache_hierarchy.ruby_system.network.routers1.port_buffers4",
+                                    "allow_zero_latency": true,
+                                    "buffer_size": 0,
+                                    "eventq_index": 0,
+                                    "max_dequeue_rate": 0,
+                                    "ordered": true,
+                                    "randomization": "ruby_system",
+                                    "routing_priority": 0
+                                },
+                                {
+                                    "type": "MessageBuffer",
+                                    "cxx_class": "gem5::ruby::MessageBuffer",
+                                    "name": "port_buffers5",
+                                    "path": "board.cache_hierarchy.ruby_system.network.routers1.port_buffers5",
+                                    "allow_zero_latency": true,
+                                    "buffer_size": 0,
+                                    "eventq_index": 0,
+                                    "max_dequeue_rate": 0,
+                                    "ordered": true,
+                                    "randomization": "ruby_system",
+                                    "routing_priority": 0
+                                },
+                                {
+                                    "type": "MessageBuffer",
+                                    "cxx_class": "gem5::ruby::MessageBuffer",
+                                    "name": "port_buffers6",
+                                    "path": "board.cache_hierarchy.ruby_system.network.routers1.port_buffers6",
+                                    "allow_zero_latency": true,
+                                    "buffer_size": 0,
+                                    "eventq_index": 0,
+                                    "max_dequeue_rate": 0,
+                                    "ordered": true,
+                                    "randomization": "ruby_system",
+                                    "routing_priority": 0
+                                },
+                                {
+                                    "type": "MessageBuffer",
+                                    "cxx_class": "gem5::ruby::MessageBuffer",
+                                    "name": "port_buffers7",
+                                    "path": "board.cache_hierarchy.ruby_system.network.routers1.port_buffers7",
+                                    "allow_zero_latency": true,
+                                    "buffer_size": 0,
+                                    "eventq_index": 0,
+                                    "max_dequeue_rate": 0,
+                                    "ordered": true,
+                                    "randomization": "ruby_system",
+                                    "routing_priority": 0
+                                },
+                                {
+                                    "type": "MessageBuffer",
+                                    "cxx_class": "gem5::ruby::MessageBuffer",
+                                    "name": "port_buffers8",
+                                    "path": "board.cache_hierarchy.ruby_system.network.routers1.port_buffers8",
+                                    "allow_zero_latency": true,
+                                    "buffer_size": 0,
+                                    "eventq_index": 0,
+                                    "max_dequeue_rate": 0,
+                                    "ordered": true,
+                                    "randomization": "ruby_system",
+                                    "routing_priority": 0
+                                }
+                            ],
+                            "power_model": [],
+                            "power_state": {
+                                "type": "PowerState",
+                                "cxx_class": "gem5::PowerState",
+                                "name": "power_state",
+                                "path": "board.cache_hierarchy.ruby_system.network.routers1.power_state",
+                                "clk_gate_bins": 20,
+                                "clk_gate_max": 1000000000000,
+                                "clk_gate_min": 1000,
+                                "default_state": "UNDEFINED",
+                                "eventq_index": 0,
+                                "leaders": [],
+                                "possible_states": []
+                            },
+                            "router_id": 1,
+                            "routing_unit": {
+                                "type": "WeightBased",
+                                "cxx_class": "gem5::ruby::WeightBased",
+                                "name": "routing_unit",
+                                "path": "board.cache_hierarchy.ruby_system.network.routers1.routing_unit",
+                                "adaptive_routing": false,
+                                "eventq_index": 0
+                            },
+                            "virt_nets": 3
+                        },
+                        {
+                            "type": "Switch",
+                            "cxx_class": "gem5::ruby::Switch",
+                            "name": "routers2",
+                            "path": "board.cache_hierarchy.ruby_system.network.routers2",
+                            "clk_domain": "board.clk_domain",
+                            "eventq_index": 0,
+                            "ext_routing_latency": 1,
+                            "int_routing_latency": 1,
+                            "latency": 1,
+                            "port_buffers": [
+                                {
+                                    "type": "MessageBuffer",
+                                    "cxx_class": "gem5::ruby::MessageBuffer",
+                                    "name": "port_buffers0",
+                                    "path": "board.cache_hierarchy.ruby_system.network.routers2.port_buffers0",
+                                    "allow_zero_latency": true,
+                                    "buffer_size": 0,
+                                    "eventq_index": 0,
+                                    "max_dequeue_rate": 0,
+                                    "ordered": true,
+                                    "randomization": "ruby_system",
+                                    "routing_priority": 0
+                                },
+                                {
+                                    "type": "MessageBuffer",
+                                    "cxx_class": "gem5::ruby::MessageBuffer",
+                                    "name": "port_buffers1",
+                                    "path": "board.cache_hierarchy.ruby_system.network.routers2.port_buffers1",
+                                    "allow_zero_latency": true,
+                                    "buffer_size": 0,
+                                    "eventq_index": 0,
+                                    "max_dequeue_rate": 0,
+                                    "ordered": true,
+                                    "randomization": "ruby_system",
+                                    "routing_priority": 0
+                                },
+                                {
+                                    "type": "MessageBuffer",
+                                    "cxx_class": "gem5::ruby::MessageBuffer",
+                                    "name": "port_buffers2",
+                                    "path": "board.cache_hierarchy.ruby_system.network.routers2.port_buffers2",
+                                    "allow_zero_latency": true,
+                                    "buffer_size": 0,
+                                    "eventq_index": 0,
+                                    "max_dequeue_rate": 0,
+                                    "ordered": true,
+                                    "randomization": "ruby_system",
+                                    "routing_priority": 0
+                                },
+                                {
+                                    "type": "MessageBuffer",
+                                    "cxx_class": "gem5::ruby::MessageBuffer",
+                                    "name": "port_buffers3",
+                                    "path": "board.cache_hierarchy.ruby_system.network.routers2.port_buffers3",
+                                    "allow_zero_latency": true,
+                                    "buffer_size": 0,
+                                    "eventq_index": 0,
+                                    "max_dequeue_rate": 0,
+                                    "ordered": true,
+                                    "randomization": "ruby_system",
+                                    "routing_priority": 0
+                                },
+                                {
+                                    "type": "MessageBuffer",
+                                    "cxx_class": "gem5::ruby::MessageBuffer",
+                                    "name": "port_buffers4",
+                                    "path": "board.cache_hierarchy.ruby_system.network.routers2.port_buffers4",
+                                    "allow_zero_latency": true,
+                                    "buffer_size": 0,
+                                    "eventq_index": 0,
+                                    "max_dequeue_rate": 0,
+                                    "ordered": true,
+                                    "randomization": "ruby_system",
+                                    "routing_priority": 0
+                                },
+                                {
+                                    "type": "MessageBuffer",
+                                    "cxx_class": "gem5::ruby::MessageBuffer",
+                                    "name": "port_buffers5",
+                                    "path": "board.cache_hierarchy.ruby_system.network.routers2.port_buffers5",
+                                    "allow_zero_latency": true,
+                                    "buffer_size": 0,
+                                    "eventq_index": 0,
+                                    "max_dequeue_rate": 0,
+                                    "ordered": true,
+                                    "randomization": "ruby_system",
+                                    "routing_priority": 0
+                                },
+                                {
+                                    "type": "MessageBuffer",
+                                    "cxx_class": "gem5::ruby::MessageBuffer",
+                                    "name": "port_buffers6",
+                                    "path": "board.cache_hierarchy.ruby_system.network.routers2.port_buffers6",
+                                    "allow_zero_latency": true,
+                                    "buffer_size": 0,
+                                    "eventq_index": 0,
+                                    "max_dequeue_rate": 0,
+                                    "ordered": true,
+                                    "randomization": "ruby_system",
+                                    "routing_priority": 0
+                                },
+                                {
+                                    "type": "MessageBuffer",
+                                    "cxx_class": "gem5::ruby::MessageBuffer",
+                                    "name": "port_buffers7",
+                                    "path": "board.cache_hierarchy.ruby_system.network.routers2.port_buffers7",
+                                    "allow_zero_latency": true,
+                                    "buffer_size": 0,
+                                    "eventq_index": 0,
+                                    "max_dequeue_rate": 0,
+                                    "ordered": true,
+                                    "randomization": "ruby_system",
+                                    "routing_priority": 0
+                                },
+                                {
+                                    "type": "MessageBuffer",
+                                    "cxx_class": "gem5::ruby::MessageBuffer",
+                                    "name": "port_buffers8",
+                                    "path": "board.cache_hierarchy.ruby_system.network.routers2.port_buffers8",
+                                    "allow_zero_latency": true,
+                                    "buffer_size": 0,
+                                    "eventq_index": 0,
+                                    "max_dequeue_rate": 0,
+                                    "ordered": true,
+                                    "randomization": "ruby_system",
+                                    "routing_priority": 0
+                                }
+                            ],
+                            "power_model": [],
+                            "power_state": {
+                                "type": "PowerState",
+                                "cxx_class": "gem5::PowerState",
+                                "name": "power_state",
+                                "path": "board.cache_hierarchy.ruby_system.network.routers2.power_state",
+                                "clk_gate_bins": 20,
+                                "clk_gate_max": 1000000000000,
+                                "clk_gate_min": 1000,
+                                "default_state": "UNDEFINED",
+                                "eventq_index": 0,
+                                "leaders": [],
+                                "possible_states": []
+                            },
+                            "router_id": 2,
+                            "routing_unit": {
+                                "type": "WeightBased",
+                                "cxx_class": "gem5::ruby::WeightBased",
+                                "name": "routing_unit",
+                                "path": "board.cache_hierarchy.ruby_system.network.routers2.routing_unit",
+                                "adaptive_routing": false,
+                                "eventq_index": 0
+                            },
+                            "virt_nets": 3
+                        }
+                    ],
+                    "ruby_system": "board.cache_hierarchy.ruby_system",
+                    "topology": "Not Specified",
+                    "in_port": {
+                        "role": "GEM5 RESPONDER",
+                        "peer": [
+                            "board.cache_hierarchy.ruby_system.l1_controllers.requestFromL1Cache.out_port",
+                            "board.cache_hierarchy.ruby_system.l1_controllers.responseFromL1Cache.out_port",
+                            "board.cache_hierarchy.ruby_system.l1_controllers.unblockFromL1Cache.out_port",
+                            "board.cache_hierarchy.ruby_system.l2_controllers.DirRequestFromL2Cache.out_port",
+                            "board.cache_hierarchy.ruby_system.l2_controllers.L1RequestFromL2Cache.out_port",
+                            "board.cache_hierarchy.ruby_system.l2_controllers.responseFromL2Cache.out_port",
+                            "board.cache_hierarchy.ruby_system.directory_controllers.responseFromDir.out_port"
+                        ],
+                        "is_source": "False"
+                    },
+                    "out_port": {
+                        "role": "GEM5 REQUESTOR",
+                        "peer": [
+                            "board.cache_hierarchy.ruby_system.l1_controllers.requestToL1Cache.in_port",
+                            "board.cache_hierarchy.ruby_system.l1_controllers.responseToL1Cache.in_port",
+                            "board.cache_hierarchy.ruby_system.l2_controllers.unblockToL2Cache.in_port",
+                            "board.cache_hierarchy.ruby_system.l2_controllers.L1RequestToL2Cache.in_port",
+                            "board.cache_hierarchy.ruby_system.l2_controllers.responseToL2Cache.in_port",
+                            "board.cache_hierarchy.ruby_system.directory_controllers.requestToDir.in_port",
+                            "board.cache_hierarchy.ruby_system.directory_controllers.responseToDir.in_port"
+                        ],
+                        "is_source": "True"
+                    }
+                },
+                "sys_port_proxy": {
+                    "type": "RubyPortProxy",
+                    "cxx_class": "gem5::ruby::RubyPortProxy",
+                    "name": "sys_port_proxy",
+                    "path": "board.cache_hierarchy.ruby_system.sys_port_proxy",
+                    "clk_domain": "board.clk_domain",
+                    "eventq_index": 0,
+                    "is_cpu_sequencer": true,
+                    "no_retry_on_stall": false,
+                    "power_model": [],
+                    "power_state": {
+                        "type": "PowerState",
+                        "cxx_class": "gem5::PowerState",
+                        "name": "power_state",
+                        "path": "board.cache_hierarchy.ruby_system.sys_port_proxy.power_state",
+                        "clk_gate_bins": 20,
+                        "clk_gate_max": 1000000000000,
+                        "clk_gate_min": 1000,
+                        "default_state": "UNDEFINED",
+                        "eventq_index": 0,
+                        "leaders": [],
+                        "possible_states": []
+                    },
+                    "ruby_system": "board.cache_hierarchy.ruby_system",
+                    "support_data_reqs": true,
+                    "support_inst_reqs": true,
+                    "system": "board",
+                    "using_ruby_tester": false,
+                    "version": 0,
+                    "in_ports": {
+                        "role": "GEM5 RESPONDER",
+                        "peer": [
+                            "board.system_port"
+                        ],
+                        "is_source": "False"
+                    }
+                }
+            }
+        },
+        "clk_domain": {
+            "type": "SrcClockDomain",
+            "cxx_class": "gem5::SrcClockDomain",
+            "name": "clk_domain",
+            "path": "board.clk_domain",
+            "clock": [
+                1000
+            ],
+            "domain_id": -1,
+            "eventq_index": 0,
+            "init_perf_level": 0,
+            "voltage_domain": {
+                "type": "VoltageDomain",
+                "cxx_class": "gem5::VoltageDomain",
+                "name": "voltage_domain",
+                "path": "board.clk_domain.voltage_domain",
+                "eventq_index": 0,
+                "voltage": [
+                    1.0
+                ]
+            }
+        },
+        "dvfs_handler": {
+            "type": "DVFSHandler",
+            "cxx_class": "gem5::DVFSHandler",
+            "name": "dvfs_handler",
+            "path": "board.dvfs_handler",
+            "domains": [],
+            "enable": false,
+            "eventq_index": 0,
+            "sys_clk_domain": "board.clk_domain",
+            "transition_latency": 100000000
+        },
+        "memory": {
+            "type": "SubSystem",
+            "cxx_class": "gem5::SubSystem",
+            "name": "memory",
+            "path": "board.memory",
+            "eventq_index": 0,
+            "thermal_domain": null,
+            "mem_ctrl": [
+                {
+                    "type": "MemCtrl",
+                    "cxx_class": "gem5::memory::MemCtrl",
+                    "name": "mem_ctrl",
+                    "path": "board.memory.mem_ctrl",
+                    "clk_domain": "board.clk_domain",
+                    "command_window": 10000,
+                    "disable_sanity_check": false,
+                    "dram": {
+                        "type": "DRAMInterface",
+                        "cxx_class": "gem5::memory::DRAMInterface",
+                        "name": "dram",
+                        "path": "board.memory.mem_ctrl.dram",
+                        "IDD0": 0.055,
+                        "IDD02": 0.0,
+                        "IDD2N": 0.032,
+                        "IDD2N2": 0.0,
+                        "IDD2P0": 0.0,
+                        "IDD2P02": 0.0,
+                        "IDD2P1": 0.032,
+                        "IDD2P12": 0.0,
+                        "IDD3N": 0.038,
+                        "IDD3N2": 0.0,
+                        "IDD3P0": 0.0,
+                        "IDD3P02": 0.0,
+                        "IDD3P1": 0.038,
+                        "IDD3P12": 0.0,
+                        "IDD4R": 0.157,
+                        "IDD4R2": 0.0,
+                        "IDD4W": 0.125,
+                        "IDD4W2": 0.0,
+                        "IDD5": 0.23500000000000001,
+                        "IDD52": 0.0,
+                        "IDD6": 0.02,
+                        "IDD62": 0.0,
+                        "VDD": 1.5,
+                        "VDD2": 0.0,
+                        "activation_limit": 4,
+                        "addr_mapping": "RoRaBaCoCh",
+                        "bank_groups_per_rank": 0,
+                        "banks_per_rank": 8,
+                        "beats_per_clock": 2,
+                        "burst_length": 8,
+                        "clk_domain": "board.clk_domain",
+                        "collect_stats": true,
+                        "conf_table_reported": true,
+                        "data_clock_sync": false,
+                        "device_bus_width": 8,
+                        "device_rowbuffer_size": 1024,
+                        "device_size": 536870912,
+                        "devices_per_rank": 8,
+                        "dll": true,
+                        "enable_dram_powerdown": false,
+                        "eventq_index": 0,
+                        "image_file": "",
+                        "in_addr_map": true,
+                        "kvm_map": true,
+                        "max_accesses_per_row": 16,
+                        "null": false,
+                        "page_policy": "open_adaptive",
+                        "power_model": [],
+                        "power_state": {
+                            "type": "PowerState",
+                            "cxx_class": "gem5::PowerState",
+                            "name": "power_state",
+                            "path": "board.memory.mem_ctrl.dram.power_state",
+                            "clk_gate_bins": 20,
+                            "clk_gate_max": 1000000000000,
+                            "clk_gate_min": 1000,
+                            "default_state": "UNDEFINED",
+                            "eventq_index": 0,
+                            "leaders": [],
+                            "possible_states": []
+                        },
+                        "range": "0:33554432",
+                        "ranks_per_channel": 2,
+                        "read_buffer_size": 32,
+                        "tAAD": 1250,
+                        "tBURST": 5000,
+                        "tBURST_MAX": 5000,
+                        "tBURST_MIN": 5000,
+                        "tCCD_L": 0,
+                        "tCCD_L_WR": 0,
+                        "tCK": 1250,
+                        "tCL": 13750,
+                        "tCS": 2500,
+                        "tCWL": 13750,
+                        "tPPD": 0,
+                        "tRAS": 35000,
+                        "tRCD": 13750,
+                        "tRCD_WR": 13750,
+                        "tREFI": 7800000,
+                        "tRFC": 260000,
+                        "tRP": 13750,
+                        "tRRD": 6000,
+                        "tRRD_L": 0,
+                        "tRTP": 7500,
+                        "tRTW": 2500,
+                        "tWR": 15000,
+                        "tWTR": 7500,
+                        "tWTR_L": 7500,
+                        "tXAW": 30000,
+                        "tXP": 6000,
+                        "tXPDLL": 0,
+                        "tXS": 270000,
+                        "tXSDLL": 0,
+                        "two_cycle_activate": false,
+                        "write_buffer_size": 64,
+                        "writeable": true
+                    },
+                    "eventq_index": 0,
+                    "mem_sched_policy": "frfcfs",
+                    "min_reads_per_switch": 16,
+                    "min_writes_per_switch": 16,
+                    "power_model": [],
+                    "power_state": {
+                        "type": "PowerState",
+                        "cxx_class": "gem5::PowerState",
+                        "name": "power_state",
+                        "path": "board.memory.mem_ctrl.power_state",
+                        "clk_gate_bins": 20,
+                        "clk_gate_max": 1000000000000,
+                        "clk_gate_min": 1000,
+                        "default_state": "UNDEFINED",
+                        "eventq_index": 0,
+                        "leaders": [],
+                        "possible_states": []
+                    },
+                    "qos_policy": null,
+                    "qos_priorities": 1,
+                    "qos_priority_escalation": false,
+                    "qos_q_policy": "fifo",
+                    "qos_requestors": [
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        ""
+                    ],
+                    "qos_syncro_scheduler": false,
+                    "qos_turnaround_policy": null,
+                    "static_backend_latency": 10000,
+                    "static_frontend_latency": 10000,
+                    "system": "board",
+                    "write_high_thresh_perc": 85,
+                    "write_low_thresh_perc": 50,
+                    "port": {
+                        "role": "GEM5 RESPONDER",
+                        "peer": "board.cache_hierarchy.ruby_system.directory_controllers.memory_out_port",
+                        "is_source": "False"
+                    }
+                }
+            ]
+        },
+        "processor": {
+            "type": "SubSystem",
+            "cxx_class": "gem5::SubSystem",
+            "name": "processor",
+            "path": "board.processor",
+            "eventq_index": 0,
+            "thermal_domain": null,
+            "cores": [
+                {
+                    "type": "SubSystem",
+                    "cxx_class": "gem5::SubSystem",
+                    "name": "cores",
+                    "path": "board.processor.cores",
+                    "eventq_index": 0,
+                    "thermal_domain": null,
+                    "core": {
+                        "type": "BaseMinorCPU",
+                        "cxx_class": "gem5::MinorCPU",
+                        "name": "core",
+                        "path": "board.processor.cores.core",
+                        "branchPred": {
+                            "type": "LocalBP",
+                            "cxx_class": "gem5::branch_prediction::LocalBP",
+                            "name": "branchPred",
+                            "path": "board.processor.cores.core.branchPred",
+                            "btb": {
+                                "type": "SimpleBTB",
+                                "cxx_class": "gem5::branch_prediction::SimpleBTB",
+                                "name": "btb",
+                                "path": "board.processor.cores.core.branchPred.btb",
+                                "clk_domain": "board.clk_domain",
+                                "eventq_index": 0,
+                                "instShiftAmt": 2,
+                                "numEntries": 16,
+                                "numThreads": 1,
+                                "power_model": [],
+                                "power_state": {
+                                    "type": "PowerState",
+                                    "cxx_class": "gem5::PowerState",
+                                    "name": "power_state",
+                                    "path": "board.processor.cores.core.branchPred.btb.power_state",
+                                    "clk_gate_bins": 20,
+                                    "clk_gate_max": 1000000000000,
+                                    "clk_gate_min": 1000,
+                                    "default_state": "UNDEFINED",
+                                    "eventq_index": 0,
+                                    "leaders": [],
+                                    "possible_states": []
+                                },
+                                "tagBits": 16
+                            },
+                            "eventq_index": 0,
+                            "indirectBranchPred": {
+                                "type": "SimpleIndirectPredictor",
+                                "cxx_class": "gem5::branch_prediction::SimpleIndirectPredictor",
+                                "name": "indirectBranchPred",
+                                "path": "board.processor.cores.core.branchPred.indirectBranchPred",
+                                "eventq_index": 0,
+                                "indirectGHRBits": 13,
+                                "indirectHashGHR": true,
+                                "indirectHashTargets": true,
+                                "indirectPathLength": 3,
+                                "indirectSets": 256,
+                                "indirectTagSize": 16,
+                                "indirectWays": 2,
+                                "instShiftAmt": 2,
+                                "numThreads": 1,
+                                "speculativePathLength": 256
+                            },
+                            "instShiftAmt": 2,
+                            "localCtrBits": 2,
+                            "localPredictorSize": 16,
+                            "numThreads": 1,
+                            "ras": {
+                                "type": "ReturnAddrStack",
+                                "cxx_class": "gem5::branch_prediction::ReturnAddrStack",
+                                "name": "ras",
+                                "path": "board.processor.cores.core.branchPred.ras",
+                                "eventq_index": 0,
+                                "numEntries": 16,
+                                "numThreads": 1
+                            },
+                            "requiresBTBHit": false
+                        },
+                        "checker": null,
+                        "clk_domain": "board.clk_domain",
+                        "cpu_id": 0,
+                        "decodeCycleInput": true,
+                        "decodeInputBufferSize": 3,
+                        "decodeInputWidth": 2,
+                        "decodeToExecuteForwardDelay": 1,
+                        "decoder": [
+                            {
+                                "type": "X86Decoder",
+                                "cxx_class": "gem5::X86ISA::Decoder",
+                                "name": "decoder",
+                                "path": "board.processor.cores.core.decoder",
+                                "eventq_index": 0,
+                                "isa": "board.processor.cores.core.isa"
+                            }
+                        ],
+                        "do_checkpoint_insts": true,
+                        "do_statistics_insts": true,
+                        "enableIdling": true,
+                        "eventq_index": 0,
+                        "executeAllowEarlyMemoryIssue": true,
+                        "executeBranchDelay": 1,
+                        "executeCommitLimit": 2,
+                        "executeCycleInput": true,
+                        "executeFuncUnits": {
+                            "type": "MinorFUPool",
+                            "cxx_class": "gem5::MinorFUPool",
+                            "name": "executeFuncUnits",
+                            "path": "board.processor.cores.core.executeFuncUnits",
+                            "eventq_index": 0,
+                            "funcUnits": [
+                                {
+                                    "type": "MinorFU",
+                                    "cxx_class": "gem5::MinorFU",
+                                    "name": "funcUnits0",
+                                    "path": "board.processor.cores.core.executeFuncUnits.funcUnits0",
+                                    "cantForwardFromFUIndices": [],
+                                    "eventq_index": 0,
+                                    "issueLat": 1,
+                                    "opClasses": {
+                                        "type": "MinorOpClassSet",
+                                        "cxx_class": "gem5::MinorOpClassSet",
+                                        "name": "opClasses",
+                                        "path": "board.processor.cores.core.executeFuncUnits.funcUnits0.opClasses",
+                                        "eventq_index": 0,
+                                        "opClasses": [
+                                            {
+                                                "type": "MinorOpClass",
+                                                "cxx_class": "gem5::MinorOpClass",
+                                                "name": "opClasses",
+                                                "path": "board.processor.cores.core.executeFuncUnits.funcUnits0.opClasses.opClasses",
+                                                "eventq_index": 0,
+                                                "opClass": "IntAlu"
+                                            }
+                                        ]
+                                    },
+                                    "opLat": 3,
+                                    "timings": [
+                                        {
+                                            "type": "MinorFUTiming",
+                                            "cxx_class": "gem5::MinorFUTiming",
+                                            "name": "timings",
+                                            "path": "board.processor.cores.core.executeFuncUnits.funcUnits0.timings",
+                                            "description": "Int",
+                                            "eventq_index": 0,
+                                            "extraAssumedLat": 0,
+                                            "extraCommitLat": 0,
+                                            "extraCommitLatExpr": null,
+                                            "mask": 0,
+                                            "match": 0,
+                                            "opClasses": {
+                                                "type": "MinorOpClassSet",
+                                                "cxx_class": "gem5::MinorOpClassSet",
+                                                "name": "opClasses",
+                                                "path": "board.processor.cores.core.executeFuncUnits.funcUnits0.timings.opClasses",
+                                                "eventq_index": 0,
+                                                "opClasses": []
+                                            },
+                                            "srcRegsRelativeLats": [
+                                                2
+                                            ],
+                                            "suppress": false
+                                        }
+                                    ]
+                                },
+                                {
+                                    "type": "MinorFU",
+                                    "cxx_class": "gem5::MinorFU",
+                                    "name": "funcUnits1",
+                                    "path": "board.processor.cores.core.executeFuncUnits.funcUnits1",
+                                    "cantForwardFromFUIndices": [],
+                                    "eventq_index": 0,
+                                    "issueLat": 1,
+                                    "opClasses": {
+                                        "type": "MinorOpClassSet",
+                                        "cxx_class": "gem5::MinorOpClassSet",
+                                        "name": "opClasses",
+                                        "path": "board.processor.cores.core.executeFuncUnits.funcUnits1.opClasses",
+                                        "eventq_index": 0,
+                                        "opClasses": [
+                                            {
+                                                "type": "MinorOpClass",
+                                                "cxx_class": "gem5::MinorOpClass",
+                                                "name": "opClasses",
+                                                "path": "board.processor.cores.core.executeFuncUnits.funcUnits1.opClasses.opClasses",
+                                                "eventq_index": 0,
+                                                "opClass": "IntAlu"
+                                            }
+                                        ]
+                                    },
+                                    "opLat": 3,
+                                    "timings": [
+                                        {
+                                            "type": "MinorFUTiming",
+                                            "cxx_class": "gem5::MinorFUTiming",
+                                            "name": "timings",
+                                            "path": "board.processor.cores.core.executeFuncUnits.funcUnits1.timings",
+                                            "description": "Int",
+                                            "eventq_index": 0,
+                                            "extraAssumedLat": 0,
+                                            "extraCommitLat": 0,
+                                            "extraCommitLatExpr": null,
+                                            "mask": 0,
+                                            "match": 0,
+                                            "opClasses": {
+                                                "type": "MinorOpClassSet",
+                                                "cxx_class": "gem5::MinorOpClassSet",
+                                                "name": "opClasses",
+                                                "path": "board.processor.cores.core.executeFuncUnits.funcUnits1.timings.opClasses",
+                                                "eventq_index": 0,
+                                                "opClasses": []
+                                            },
+                                            "srcRegsRelativeLats": [
+                                                2
+                                            ],
+                                            "suppress": false
+                                        }
+                                    ]
+                                },
+                                {
+                                    "type": "MinorFU",
+                                    "cxx_class": "gem5::MinorFU",
+                                    "name": "funcUnits2",
+                                    "path": "board.processor.cores.core.executeFuncUnits.funcUnits2",
+                                    "cantForwardFromFUIndices": [],
+                                    "eventq_index": 0,
+                                    "issueLat": 1,
+                                    "opClasses": {
+                                        "type": "MinorOpClassSet",
+                                        "cxx_class": "gem5::MinorOpClassSet",
+                                        "name": "opClasses",
+                                        "path": "board.processor.cores.core.executeFuncUnits.funcUnits2.opClasses",
+                                        "eventq_index": 0,
+                                        "opClasses": [
+                                            {
+                                                "type": "MinorOpClass",
+                                                "cxx_class": "gem5::MinorOpClass",
+                                                "name": "opClasses",
+                                                "path": "board.processor.cores.core.executeFuncUnits.funcUnits2.opClasses.opClasses",
+                                                "eventq_index": 0,
+                                                "opClass": "IntMult"
+                                            }
+                                        ]
+                                    },
+                                    "opLat": 3,
+                                    "timings": [
+                                        {
+                                            "type": "MinorFUTiming",
+                                            "cxx_class": "gem5::MinorFUTiming",
+                                            "name": "timings",
+                                            "path": "board.processor.cores.core.executeFuncUnits.funcUnits2.timings",
+                                            "description": "Mul",
+                                            "eventq_index": 0,
+                                            "extraAssumedLat": 0,
+                                            "extraCommitLat": 0,
+                                            "extraCommitLatExpr": null,
+                                            "mask": 0,
+                                            "match": 0,
+                                            "opClasses": {
+                                                "type": "MinorOpClassSet",
+                                                "cxx_class": "gem5::MinorOpClassSet",
+                                                "name": "opClasses",
+                                                "path": "board.processor.cores.core.executeFuncUnits.funcUnits2.timings.opClasses",
+                                                "eventq_index": 0,
+                                                "opClasses": []
+                                            },
+                                            "srcRegsRelativeLats": [
+                                                0
+                                            ],
+                                            "suppress": false
+                                        }
+                                    ]
+                                },
+                                {
+                                    "type": "MinorFU",
+                                    "cxx_class": "gem5::MinorFU",
+                                    "name": "funcUnits3",
+                                    "path": "board.processor.cores.core.executeFuncUnits.funcUnits3",
+                                    "cantForwardFromFUIndices": [],
+                                    "eventq_index": 0,
+                                    "issueLat": 9,
+                                    "opClasses": {
+                                        "type": "MinorOpClassSet",
+                                        "cxx_class": "gem5::MinorOpClassSet",
+                                        "name": "opClasses",
+                                        "path": "board.processor.cores.core.executeFuncUnits.funcUnits3.opClasses",
+                                        "eventq_index": 0,
+                                        "opClasses": [
+                                            {
+                                                "type": "MinorOpClass",
+                                                "cxx_class": "gem5::MinorOpClass",
+                                                "name": "opClasses",
+                                                "path": "board.processor.cores.core.executeFuncUnits.funcUnits3.opClasses.opClasses",
+                                                "eventq_index": 0,
+                                                "opClass": "IntDiv"
+                                            }
+                                        ]
+                                    },
+                                    "opLat": 9,
+                                    "timings": []
+                                },
+                                {
+                                    "type": "MinorFU",
+                                    "cxx_class": "gem5::MinorFU",
+                                    "name": "funcUnits4",
+                                    "path": "board.processor.cores.core.executeFuncUnits.funcUnits4",
+                                    "cantForwardFromFUIndices": [],
+                                    "eventq_index": 0,
+                                    "issueLat": 1,
+                                    "opClasses": {
+                                        "type": "MinorOpClassSet",
+                                        "cxx_class": "gem5::MinorOpClassSet",
+                                        "name": "opClasses",
+                                        "path": "board.processor.cores.core.executeFuncUnits.funcUnits4.opClasses",
+                                        "eventq_index": 0,
+                                        "opClasses": [
+                                            {
+                                                "type": "MinorOpClass",
+                                                "cxx_class": "gem5::MinorOpClass",
+                                                "name": "opClasses00",
+                                                "path": "board.processor.cores.core.executeFuncUnits.funcUnits4.opClasses.opClasses00",
+                                                "eventq_index": 0,
+                                                "opClass": "FloatAdd"
+                                            },
+                                            {
+                                                "type": "MinorOpClass",
+                                                "cxx_class": "gem5::MinorOpClass",
+                                                "name": "opClasses01",
+                                                "path": "board.processor.cores.core.executeFuncUnits.funcUnits4.opClasses.opClasses01",
+                                                "eventq_index": 0,
+                                                "opClass": "FloatCmp"
+                                            },
+                                            {
+                                                "type": "MinorOpClass",
+                                                "cxx_class": "gem5::MinorOpClass",
+                                                "name": "opClasses02",
+                                                "path": "board.processor.cores.core.executeFuncUnits.funcUnits4.opClasses.opClasses02",
+                                                "eventq_index": 0,
+                                                "opClass": "FloatCvt"
+                                            },
+                                            {
+                                                "type": "MinorOpClass",
+                                                "cxx_class": "gem5::MinorOpClass",
+                                                "name": "opClasses03",
+                                                "path": "board.processor.cores.core.executeFuncUnits.funcUnits4.opClasses.opClasses03",
+                                                "eventq_index": 0,
+                                                "opClass": "FloatMisc"
+                                            },
+                                            {
+                                                "type": "MinorOpClass",
+                                                "cxx_class": "gem5::MinorOpClass",
+                                                "name": "opClasses04",
+                                                "path": "board.processor.cores.core.executeFuncUnits.funcUnits4.opClasses.opClasses04",
+                                                "eventq_index": 0,
+                                                "opClass": "FloatMult"
+                                            },
+                                            {
+                                                "type": "MinorOpClass",
+                                                "cxx_class": "gem5::MinorOpClass",
+                                                "name": "opClasses05",
+                                                "path": "board.processor.cores.core.executeFuncUnits.funcUnits4.opClasses.opClasses05",
+                                                "eventq_index": 0,
+                                                "opClass": "FloatMultAcc"
+                                            },
+                                            {
+                                                "type": "MinorOpClass",
+                                                "cxx_class": "gem5::MinorOpClass",
+                                                "name": "opClasses06",
+                                                "path": "board.processor.cores.core.executeFuncUnits.funcUnits4.opClasses.opClasses06",
+                                                "eventq_index": 0,
+                                                "opClass": "FloatDiv"
+                                            },
+                                            {
+                                                "type": "MinorOpClass",
+                                                "cxx_class": "gem5::MinorOpClass",
+                                                "name": "opClasses07",
+                                                "path": "board.processor.cores.core.executeFuncUnits.funcUnits4.opClasses.opClasses07",
+                                                "eventq_index": 0,
+                                                "opClass": "FloatSqrt"
+                                            },
+                                            {
+                                                "type": "MinorOpClass",
+                                                "cxx_class": "gem5::MinorOpClass",
+                                                "name": "opClasses08",
+                                                "path": "board.processor.cores.core.executeFuncUnits.funcUnits4.opClasses.opClasses08",
+                                                "eventq_index": 0,
+                                                "opClass": "SimdAdd"
+                                            },
+                                            {
+                                                "type": "MinorOpClass",
+                                                "cxx_class": "gem5::MinorOpClass",
+                                                "name": "opClasses09",
+                                                "path": "board.processor.cores.core.executeFuncUnits.funcUnits4.opClasses.opClasses09",
+                                                "eventq_index": 0,
+                                                "opClass": "SimdAddAcc"
+                                            },
+                                            {
+                                                "type": "MinorOpClass",
+                                                "cxx_class": "gem5::MinorOpClass",
+                                                "name": "opClasses10",
+                                                "path": "board.processor.cores.core.executeFuncUnits.funcUnits4.opClasses.opClasses10",
+                                                "eventq_index": 0,
+                                                "opClass": "SimdAlu"
+                                            },
+                                            {
+                                                "type": "MinorOpClass",
+                                                "cxx_class": "gem5::MinorOpClass",
+                                                "name": "opClasses11",
+                                                "path": "board.processor.cores.core.executeFuncUnits.funcUnits4.opClasses.opClasses11",
+                                                "eventq_index": 0,
+                                                "opClass": "SimdCmp"
+                                            },
+                                            {
+                                                "type": "MinorOpClass",
+                                                "cxx_class": "gem5::MinorOpClass",
+                                                "name": "opClasses12",
+                                                "path": "board.processor.cores.core.executeFuncUnits.funcUnits4.opClasses.opClasses12",
+                                                "eventq_index": 0,
+                                                "opClass": "SimdCvt"
+                                            },
+                                            {
+                                                "type": "MinorOpClass",
+                                                "cxx_class": "gem5::MinorOpClass",
+                                                "name": "opClasses13",
+                                                "path": "board.processor.cores.core.executeFuncUnits.funcUnits4.opClasses.opClasses13",
+                                                "eventq_index": 0,
+                                                "opClass": "SimdMisc"
+                                            },
+                                            {
+                                                "type": "MinorOpClass",
+                                                "cxx_class": "gem5::MinorOpClass",
+                                                "name": "opClasses14",
+                                                "path": "board.processor.cores.core.executeFuncUnits.funcUnits4.opClasses.opClasses14",
+                                                "eventq_index": 0,
+                                                "opClass": "SimdMult"
+                                            },
+                                            {
+                                                "type": "MinorOpClass",
+                                                "cxx_class": "gem5::MinorOpClass",
+                                                "name": "opClasses15",
+                                                "path": "board.processor.cores.core.executeFuncUnits.funcUnits4.opClasses.opClasses15",
+                                                "eventq_index": 0,
+                                                "opClass": "SimdMultAcc"
+                                            },
+                                            {
+                                                "type": "MinorOpClass",
+                                                "cxx_class": "gem5::MinorOpClass",
+                                                "name": "opClasses16",
+                                                "path": "board.processor.cores.core.executeFuncUnits.funcUnits4.opClasses.opClasses16",
+                                                "eventq_index": 0,
+                                                "opClass": "SimdMatMultAcc"
+                                            },
+                                            {
+                                                "type": "MinorOpClass",
+                                                "cxx_class": "gem5::MinorOpClass",
+                                                "name": "opClasses17",
+                                                "path": "board.processor.cores.core.executeFuncUnits.funcUnits4.opClasses.opClasses17",
+                                                "eventq_index": 0,
+                                                "opClass": "SimdShift"
+                                            },
+                                            {
+                                                "type": "MinorOpClass",
+                                                "cxx_class": "gem5::MinorOpClass",
+                                                "name": "opClasses18",
+                                                "path": "board.processor.cores.core.executeFuncUnits.funcUnits4.opClasses.opClasses18",
+                                                "eventq_index": 0,
+                                                "opClass": "SimdShiftAcc"
+                                            },
+                                            {
+                                                "type": "MinorOpClass",
+                                                "cxx_class": "gem5::MinorOpClass",
+                                                "name": "opClasses19",
+                                                "path": "board.processor.cores.core.executeFuncUnits.funcUnits4.opClasses.opClasses19",
+                                                "eventq_index": 0,
+                                                "opClass": "SimdDiv"
+                                            },
+                                            {
+                                                "type": "MinorOpClass",
+                                                "cxx_class": "gem5::MinorOpClass",
+                                                "name": "opClasses20",
+                                                "path": "board.processor.cores.core.executeFuncUnits.funcUnits4.opClasses.opClasses20",
+                                                "eventq_index": 0,
+                                                "opClass": "SimdSqrt"
+                                            },
+                                            {
+                                                "type": "MinorOpClass",
+                                                "cxx_class": "gem5::MinorOpClass",
+                                                "name": "opClasses21",
+                                                "path": "board.processor.cores.core.executeFuncUnits.funcUnits4.opClasses.opClasses21",
+                                                "eventq_index": 0,
+                                                "opClass": "SimdFloatAdd"
+                                            },
+                                            {
+                                                "type": "MinorOpClass",
+                                                "cxx_class": "gem5::MinorOpClass",
+                                                "name": "opClasses22",
+                                                "path": "board.processor.cores.core.executeFuncUnits.funcUnits4.opClasses.opClasses22",
+                                                "eventq_index": 0,
+                                                "opClass": "SimdFloatAlu"
+                                            },
+                                            {
+                                                "type": "MinorOpClass",
+                                                "cxx_class": "gem5::MinorOpClass",
+                                                "name": "opClasses23",
+                                                "path": "board.processor.cores.core.executeFuncUnits.funcUnits4.opClasses.opClasses23",
+                                                "eventq_index": 0,
+                                                "opClass": "SimdFloatCmp"
+                                            },
+                                            {
+                                                "type": "MinorOpClass",
+                                                "cxx_class": "gem5::MinorOpClass",
+                                                "name": "opClasses24",
+                                                "path": "board.processor.cores.core.executeFuncUnits.funcUnits4.opClasses.opClasses24",
+                                                "eventq_index": 0,
+                                                "opClass": "SimdFloatCvt"
+                                            },
+                                            {
+                                                "type": "MinorOpClass",
+                                                "cxx_class": "gem5::MinorOpClass",
+                                                "name": "opClasses25",
+                                                "path": "board.processor.cores.core.executeFuncUnits.funcUnits4.opClasses.opClasses25",
+                                                "eventq_index": 0,
+                                                "opClass": "SimdFloatDiv"
+                                            },
+                                            {
+                                                "type": "MinorOpClass",
+                                                "cxx_class": "gem5::MinorOpClass",
+                                                "name": "opClasses26",
+                                                "path": "board.processor.cores.core.executeFuncUnits.funcUnits4.opClasses.opClasses26",
+                                                "eventq_index": 0,
+                                                "opClass": "SimdFloatMisc"
+                                            },
+                                            {
+                                                "type": "MinorOpClass",
+                                                "cxx_class": "gem5::MinorOpClass",
+                                                "name": "opClasses27",
+                                                "path": "board.processor.cores.core.executeFuncUnits.funcUnits4.opClasses.opClasses27",
+                                                "eventq_index": 0,
+                                                "opClass": "SimdFloatMult"
+                                            },
+                                            {
+                                                "type": "MinorOpClass",
+                                                "cxx_class": "gem5::MinorOpClass",
+                                                "name": "opClasses28",
+                                                "path": "board.processor.cores.core.executeFuncUnits.funcUnits4.opClasses.opClasses28",
+                                                "eventq_index": 0,
+                                                "opClass": "SimdFloatMultAcc"
+                                            },
+                                            {
+                                                "type": "MinorOpClass",
+                                                "cxx_class": "gem5::MinorOpClass",
+                                                "name": "opClasses29",
+                                                "path": "board.processor.cores.core.executeFuncUnits.funcUnits4.opClasses.opClasses29",
+                                                "eventq_index": 0,
+                                                "opClass": "SimdFloatMatMultAcc"
+                                            },
+                                            {
+                                                "type": "MinorOpClass",
+                                                "cxx_class": "gem5::MinorOpClass",
+                                                "name": "opClasses30",
+                                                "path": "board.processor.cores.core.executeFuncUnits.funcUnits4.opClasses.opClasses30",
+                                                "eventq_index": 0,
+                                                "opClass": "SimdFloatSqrt"
+                                            },
+                                            {
+                                                "type": "MinorOpClass",
+                                                "cxx_class": "gem5::MinorOpClass",
+                                                "name": "opClasses31",
+                                                "path": "board.processor.cores.core.executeFuncUnits.funcUnits4.opClasses.opClasses31",
+                                                "eventq_index": 0,
+                                                "opClass": "SimdReduceAdd"
+                                            },
+                                            {
+                                                "type": "MinorOpClass",
+                                                "cxx_class": "gem5::MinorOpClass",
+                                                "name": "opClasses32",
+                                                "path": "board.processor.cores.core.executeFuncUnits.funcUnits4.opClasses.opClasses32",
+                                                "eventq_index": 0,
+                                                "opClass": "SimdReduceAlu"
+                                            },
+                                            {
+                                                "type": "MinorOpClass",
+                                                "cxx_class": "gem5::MinorOpClass",
+                                                "name": "opClasses33",
+                                                "path": "board.processor.cores.core.executeFuncUnits.funcUnits4.opClasses.opClasses33",
+                                                "eventq_index": 0,
+                                                "opClass": "SimdReduceCmp"
+                                            },
+                                            {
+                                                "type": "MinorOpClass",
+                                                "cxx_class": "gem5::MinorOpClass",
+                                                "name": "opClasses34",
+                                                "path": "board.processor.cores.core.executeFuncUnits.funcUnits4.opClasses.opClasses34",
+                                                "eventq_index": 0,
+                                                "opClass": "SimdFloatReduceAdd"
+                                            },
+                                            {
+                                                "type": "MinorOpClass",
+                                                "cxx_class": "gem5::MinorOpClass",
+                                                "name": "opClasses35",
+                                                "path": "board.processor.cores.core.executeFuncUnits.funcUnits4.opClasses.opClasses35",
+                                                "eventq_index": 0,
+                                                "opClass": "SimdFloatReduceCmp"
+                                            },
+                                            {
+                                                "type": "MinorOpClass",
+                                                "cxx_class": "gem5::MinorOpClass",
+                                                "name": "opClasses36",
+                                                "path": "board.processor.cores.core.executeFuncUnits.funcUnits4.opClasses.opClasses36",
+                                                "eventq_index": 0,
+                                                "opClass": "SimdAes"
+                                            },
+                                            {
+                                                "type": "MinorOpClass",
+                                                "cxx_class": "gem5::MinorOpClass",
+                                                "name": "opClasses37",
+                                                "path": "board.processor.cores.core.executeFuncUnits.funcUnits4.opClasses.opClasses37",
+                                                "eventq_index": 0,
+                                                "opClass": "SimdAesMix"
+                                            },
+                                            {
+                                                "type": "MinorOpClass",
+                                                "cxx_class": "gem5::MinorOpClass",
+                                                "name": "opClasses38",
+                                                "path": "board.processor.cores.core.executeFuncUnits.funcUnits4.opClasses.opClasses38",
+                                                "eventq_index": 0,
+                                                "opClass": "SimdSha1Hash"
+                                            },
+                                            {
+                                                "type": "MinorOpClass",
+                                                "cxx_class": "gem5::MinorOpClass",
+                                                "name": "opClasses39",
+                                                "path": "board.processor.cores.core.executeFuncUnits.funcUnits4.opClasses.opClasses39",
+                                                "eventq_index": 0,
+                                                "opClass": "SimdSha1Hash2"
+                                            },
+                                            {
+                                                "type": "MinorOpClass",
+                                                "cxx_class": "gem5::MinorOpClass",
+                                                "name": "opClasses40",
+                                                "path": "board.processor.cores.core.executeFuncUnits.funcUnits4.opClasses.opClasses40",
+                                                "eventq_index": 0,
+                                                "opClass": "SimdSha256Hash"
+                                            },
+                                            {
+                                                "type": "MinorOpClass",
+                                                "cxx_class": "gem5::MinorOpClass",
+                                                "name": "opClasses41",
+                                                "path": "board.processor.cores.core.executeFuncUnits.funcUnits4.opClasses.opClasses41",
+                                                "eventq_index": 0,
+                                                "opClass": "SimdSha256Hash2"
+                                            },
+                                            {
+                                                "type": "MinorOpClass",
+                                                "cxx_class": "gem5::MinorOpClass",
+                                                "name": "opClasses42",
+                                                "path": "board.processor.cores.core.executeFuncUnits.funcUnits4.opClasses.opClasses42",
+                                                "eventq_index": 0,
+                                                "opClass": "SimdShaSigma2"
+                                            },
+                                            {
+                                                "type": "MinorOpClass",
+                                                "cxx_class": "gem5::MinorOpClass",
+                                                "name": "opClasses43",
+                                                "path": "board.processor.cores.core.executeFuncUnits.funcUnits4.opClasses.opClasses43",
+                                                "eventq_index": 0,
+                                                "opClass": "SimdShaSigma3"
+                                            },
+                                            {
+                                                "type": "MinorOpClass",
+                                                "cxx_class": "gem5::MinorOpClass",
+                                                "name": "opClasses44",
+                                                "path": "board.processor.cores.core.executeFuncUnits.funcUnits4.opClasses.opClasses44",
+                                                "eventq_index": 0,
+                                                "opClass": "Matrix"
+                                            },
+                                            {
+                                                "type": "MinorOpClass",
+                                                "cxx_class": "gem5::MinorOpClass",
+                                                "name": "opClasses45",
+                                                "path": "board.processor.cores.core.executeFuncUnits.funcUnits4.opClasses.opClasses45",
+                                                "eventq_index": 0,
+                                                "opClass": "MatrixMov"
+                                            },
+                                            {
+                                                "type": "MinorOpClass",
+                                                "cxx_class": "gem5::MinorOpClass",
+                                                "name": "opClasses46",
+                                                "path": "board.processor.cores.core.executeFuncUnits.funcUnits4.opClasses.opClasses46",
+                                                "eventq_index": 0,
+                                                "opClass": "MatrixOP"
+                                            },
+                                            {
+                                                "type": "MinorOpClass",
+                                                "cxx_class": "gem5::MinorOpClass",
+                                                "name": "opClasses47",
+                                                "path": "board.processor.cores.core.executeFuncUnits.funcUnits4.opClasses.opClasses47",
+                                                "eventq_index": 0,
+                                                "opClass": "SimdExt"
+                                            },
+                                            {
+                                                "type": "MinorOpClass",
+                                                "cxx_class": "gem5::MinorOpClass",
+                                                "name": "opClasses48",
+                                                "path": "board.processor.cores.core.executeFuncUnits.funcUnits4.opClasses.opClasses48",
+                                                "eventq_index": 0,
+                                                "opClass": "SimdFloatExt"
+                                            },
+                                            {
+                                                "type": "MinorOpClass",
+                                                "cxx_class": "gem5::MinorOpClass",
+                                                "name": "opClasses49",
+                                                "path": "board.processor.cores.core.executeFuncUnits.funcUnits4.opClasses.opClasses49",
+                                                "eventq_index": 0,
+                                                "opClass": "SimdFloatCvt"
+                                            },
+                                            {
+                                                "type": "MinorOpClass",
+                                                "cxx_class": "gem5::MinorOpClass",
+                                                "name": "opClasses50",
+                                                "path": "board.processor.cores.core.executeFuncUnits.funcUnits4.opClasses.opClasses50",
+                                                "eventq_index": 0,
+                                                "opClass": "SimdConfig"
+                                            }
+                                        ]
+                                    },
+                                    "opLat": 6,
+                                    "timings": [
+                                        {
+                                            "type": "MinorFUTiming",
+                                            "cxx_class": "gem5::MinorFUTiming",
+                                            "name": "timings",
+                                            "path": "board.processor.cores.core.executeFuncUnits.funcUnits4.timings",
+                                            "description": "FloatSimd",
+                                            "eventq_index": 0,
+                                            "extraAssumedLat": 0,
+                                            "extraCommitLat": 0,
+                                            "extraCommitLatExpr": null,
+                                            "mask": 0,
+                                            "match": 0,
+                                            "opClasses": {
+                                                "type": "MinorOpClassSet",
+                                                "cxx_class": "gem5::MinorOpClassSet",
+                                                "name": "opClasses",
+                                                "path": "board.processor.cores.core.executeFuncUnits.funcUnits4.timings.opClasses",
+                                                "eventq_index": 0,
+                                                "opClasses": []
+                                            },
+                                            "srcRegsRelativeLats": [
+                                                2
+                                            ],
+                                            "suppress": false
+                                        }
+                                    ]
+                                },
+                                {
+                                    "type": "MinorFU",
+                                    "cxx_class": "gem5::MinorFU",
+                                    "name": "funcUnits5",
+                                    "path": "board.processor.cores.core.executeFuncUnits.funcUnits5",
+                                    "cantForwardFromFUIndices": [],
+                                    "eventq_index": 0,
+                                    "issueLat": 1,
+                                    "opClasses": {
+                                        "type": "MinorOpClassSet",
+                                        "cxx_class": "gem5::MinorOpClassSet",
+                                        "name": "opClasses",
+                                        "path": "board.processor.cores.core.executeFuncUnits.funcUnits5.opClasses",
+                                        "eventq_index": 0,
+                                        "opClasses": [
+                                            {
+                                                "type": "MinorOpClass",
+                                                "cxx_class": "gem5::MinorOpClass",
+                                                "name": "opClasses",
+                                                "path": "board.processor.cores.core.executeFuncUnits.funcUnits5.opClasses.opClasses",
+                                                "eventq_index": 0,
+                                                "opClass": "SimdPredAlu"
+                                            }
+                                        ]
+                                    },
+                                    "opLat": 3,
+                                    "timings": [
+                                        {
+                                            "type": "MinorFUTiming",
+                                            "cxx_class": "gem5::MinorFUTiming",
+                                            "name": "timings",
+                                            "path": "board.processor.cores.core.executeFuncUnits.funcUnits5.timings",
+                                            "description": "Pred",
+                                            "eventq_index": 0,
+                                            "extraAssumedLat": 0,
+                                            "extraCommitLat": 0,
+                                            "extraCommitLatExpr": null,
+                                            "mask": 0,
+                                            "match": 0,
+                                            "opClasses": {
+                                                "type": "MinorOpClassSet",
+                                                "cxx_class": "gem5::MinorOpClassSet",
+                                                "name": "opClasses",
+                                                "path": "board.processor.cores.core.executeFuncUnits.funcUnits5.timings.opClasses",
+                                                "eventq_index": 0,
+                                                "opClasses": []
+                                            },
+                                            "srcRegsRelativeLats": [
+                                                2
+                                            ],
+                                            "suppress": false
+                                        }
+                                    ]
+                                },
+                                {
+                                    "type": "MinorFU",
+                                    "cxx_class": "gem5::MinorFU",
+                                    "name": "funcUnits6",
+                                    "path": "board.processor.cores.core.executeFuncUnits.funcUnits6",
+                                    "cantForwardFromFUIndices": [],
+                                    "eventq_index": 0,
+                                    "issueLat": 1,
+                                    "opClasses": {
+                                        "type": "MinorOpClassSet",
+                                        "cxx_class": "gem5::MinorOpClassSet",
+                                        "name": "opClasses",
+                                        "path": "board.processor.cores.core.executeFuncUnits.funcUnits6.opClasses",
+                                        "eventq_index": 0,
+                                        "opClasses": [
+                                            {
+                                                "type": "MinorOpClass",
+                                                "cxx_class": "gem5::MinorOpClass",
+                                                "name": "opClasses00",
+                                                "path": "board.processor.cores.core.executeFuncUnits.funcUnits6.opClasses.opClasses00",
+                                                "eventq_index": 0,
+                                                "opClass": "MemRead"
+                                            },
+                                            {
+                                                "type": "MinorOpClass",
+                                                "cxx_class": "gem5::MinorOpClass",
+                                                "name": "opClasses01",
+                                                "path": "board.processor.cores.core.executeFuncUnits.funcUnits6.opClasses.opClasses01",
+                                                "eventq_index": 0,
+                                                "opClass": "MemWrite"
+                                            },
+                                            {
+                                                "type": "MinorOpClass",
+                                                "cxx_class": "gem5::MinorOpClass",
+                                                "name": "opClasses02",
+                                                "path": "board.processor.cores.core.executeFuncUnits.funcUnits6.opClasses.opClasses02",
+                                                "eventq_index": 0,
+                                                "opClass": "FloatMemRead"
+                                            },
+                                            {
+                                                "type": "MinorOpClass",
+                                                "cxx_class": "gem5::MinorOpClass",
+                                                "name": "opClasses03",
+                                                "path": "board.processor.cores.core.executeFuncUnits.funcUnits6.opClasses.opClasses03",
+                                                "eventq_index": 0,
+                                                "opClass": "FloatMemWrite"
+                                            },
+                                            {
+                                                "type": "MinorOpClass",
+                                                "cxx_class": "gem5::MinorOpClass",
+                                                "name": "opClasses04",
+                                                "path": "board.processor.cores.core.executeFuncUnits.funcUnits6.opClasses.opClasses04",
+                                                "eventq_index": 0,
+                                                "opClass": "SimdUnitStrideLoad"
+                                            },
+                                            {
+                                                "type": "MinorOpClass",
+                                                "cxx_class": "gem5::MinorOpClass",
+                                                "name": "opClasses05",
+                                                "path": "board.processor.cores.core.executeFuncUnits.funcUnits6.opClasses.opClasses05",
+                                                "eventq_index": 0,
+                                                "opClass": "SimdUnitStrideStore"
+                                            },
+                                            {
+                                                "type": "MinorOpClass",
+                                                "cxx_class": "gem5::MinorOpClass",
+                                                "name": "opClasses06",
+                                                "path": "board.processor.cores.core.executeFuncUnits.funcUnits6.opClasses.opClasses06",
+                                                "eventq_index": 0,
+                                                "opClass": "SimdUnitStrideMaskLoad"
+                                            },
+                                            {
+                                                "type": "MinorOpClass",
+                                                "cxx_class": "gem5::MinorOpClass",
+                                                "name": "opClasses07",
+                                                "path": "board.processor.cores.core.executeFuncUnits.funcUnits6.opClasses.opClasses07",
+                                                "eventq_index": 0,
+                                                "opClass": "SimdUnitStrideMaskStore"
+                                            },
+                                            {
+                                                "type": "MinorOpClass",
+                                                "cxx_class": "gem5::MinorOpClass",
+                                                "name": "opClasses08",
+                                                "path": "board.processor.cores.core.executeFuncUnits.funcUnits6.opClasses.opClasses08",
+                                                "eventq_index": 0,
+                                                "opClass": "SimdStridedLoad"
+                                            },
+                                            {
+                                                "type": "MinorOpClass",
+                                                "cxx_class": "gem5::MinorOpClass",
+                                                "name": "opClasses09",
+                                                "path": "board.processor.cores.core.executeFuncUnits.funcUnits6.opClasses.opClasses09",
+                                                "eventq_index": 0,
+                                                "opClass": "SimdStridedStore"
+                                            },
+                                            {
+                                                "type": "MinorOpClass",
+                                                "cxx_class": "gem5::MinorOpClass",
+                                                "name": "opClasses10",
+                                                "path": "board.processor.cores.core.executeFuncUnits.funcUnits6.opClasses.opClasses10",
+                                                "eventq_index": 0,
+                                                "opClass": "SimdIndexedLoad"
+                                            },
+                                            {
+                                                "type": "MinorOpClass",
+                                                "cxx_class": "gem5::MinorOpClass",
+                                                "name": "opClasses11",
+                                                "path": "board.processor.cores.core.executeFuncUnits.funcUnits6.opClasses.opClasses11",
+                                                "eventq_index": 0,
+                                                "opClass": "SimdIndexedStore"
+                                            },
+                                            {
+                                                "type": "MinorOpClass",
+                                                "cxx_class": "gem5::MinorOpClass",
+                                                "name": "opClasses12",
+                                                "path": "board.processor.cores.core.executeFuncUnits.funcUnits6.opClasses.opClasses12",
+                                                "eventq_index": 0,
+                                                "opClass": "SimdUnitStrideFaultOnlyFirstLoad"
+                                            },
+                                            {
+                                                "type": "MinorOpClass",
+                                                "cxx_class": "gem5::MinorOpClass",
+                                                "name": "opClasses13",
+                                                "path": "board.processor.cores.core.executeFuncUnits.funcUnits6.opClasses.opClasses13",
+                                                "eventq_index": 0,
+                                                "opClass": "SimdWholeRegisterLoad"
+                                            },
+                                            {
+                                                "type": "MinorOpClass",
+                                                "cxx_class": "gem5::MinorOpClass",
+                                                "name": "opClasses14",
+                                                "path": "board.processor.cores.core.executeFuncUnits.funcUnits6.opClasses.opClasses14",
+                                                "eventq_index": 0,
+                                                "opClass": "SimdWholeRegisterStore"
+                                            }
+                                        ]
+                                    },
+                                    "opLat": 1,
+                                    "timings": [
+                                        {
+                                            "type": "MinorFUTiming",
+                                            "cxx_class": "gem5::MinorFUTiming",
+                                            "name": "timings",
+                                            "path": "board.processor.cores.core.executeFuncUnits.funcUnits6.timings",
+                                            "description": "Mem",
+                                            "eventq_index": 0,
+                                            "extraAssumedLat": 2,
+                                            "extraCommitLat": 0,
+                                            "extraCommitLatExpr": null,
+                                            "mask": 0,
+                                            "match": 0,
+                                            "opClasses": {
+                                                "type": "MinorOpClassSet",
+                                                "cxx_class": "gem5::MinorOpClassSet",
+                                                "name": "opClasses",
+                                                "path": "board.processor.cores.core.executeFuncUnits.funcUnits6.timings.opClasses",
+                                                "eventq_index": 0,
+                                                "opClasses": []
+                                            },
+                                            "srcRegsRelativeLats": [
+                                                1
+                                            ],
+                                            "suppress": false
+                                        }
+                                    ]
+                                },
+                                {
+                                    "type": "MinorFU",
+                                    "cxx_class": "gem5::MinorFU",
+                                    "name": "funcUnits7",
+                                    "path": "board.processor.cores.core.executeFuncUnits.funcUnits7",
+                                    "cantForwardFromFUIndices": [],
+                                    "eventq_index": 0,
+                                    "issueLat": 1,
+                                    "opClasses": {
+                                        "type": "MinorOpClassSet",
+                                        "cxx_class": "gem5::MinorOpClassSet",
+                                        "name": "opClasses",
+                                        "path": "board.processor.cores.core.executeFuncUnits.funcUnits7.opClasses",
+                                        "eventq_index": 0,
+                                        "opClasses": [
+                                            {
+                                                "type": "MinorOpClass",
+                                                "cxx_class": "gem5::MinorOpClass",
+                                                "name": "opClasses0",
+                                                "path": "board.processor.cores.core.executeFuncUnits.funcUnits7.opClasses.opClasses0",
+                                                "eventq_index": 0,
+                                                "opClass": "IprAccess"
+                                            },
+                                            {
+                                                "type": "MinorOpClass",
+                                                "cxx_class": "gem5::MinorOpClass",
+                                                "name": "opClasses1",
+                                                "path": "board.processor.cores.core.executeFuncUnits.funcUnits7.opClasses.opClasses1",
+                                                "eventq_index": 0,
+                                                "opClass": "InstPrefetch"
+                                            }
+                                        ]
+                                    },
+                                    "opLat": 1,
+                                    "timings": []
+                                }
+                            ]
+                        },
+                        "executeInputBufferSize": 7,
+                        "executeInputWidth": 2,
+                        "executeIssueLimit": 2,
+                        "executeLSQMaxStoreBufferStoresPerCycle": 2,
+                        "executeLSQRequestsQueueSize": 1,
+                        "executeLSQStoreBufferSize": 5,
+                        "executeLSQTransfersQueueSize": 2,
+                        "executeMaxAccessesInMemory": 2,
+                        "executeMemoryCommitLimit": 1,
+                        "executeMemoryIssueLimit": 1,
+                        "executeMemoryWidth": 0,
+                        "executeSetTraceTimeOnCommit": true,
+                        "executeSetTraceTimeOnIssue": false,
+                        "fetch1FetchLimit": 1,
+                        "fetch1LineSnapWidth": 0,
+                        "fetch1LineWidth": 0,
+                        "fetch1ToFetch2BackwardDelay": 1,
+                        "fetch1ToFetch2ForwardDelay": 1,
+                        "fetch2CycleInput": true,
+                        "fetch2InputBufferSize": 2,
+                        "fetch2ToDecodeForwardDelay": 1,
+                        "function_trace": false,
+                        "function_trace_start": 0,
+                        "interrupts": [
+                            {
+                                "type": "X86LocalApic",
+                                "cxx_class": "gem5::X86ISA::Interrupts",
+                                "name": "interrupts",
+                                "path": "board.processor.cores.core.interrupts",
+                                "clk_domain": {
+                                    "type": "DerivedClockDomain",
+                                    "cxx_class": "gem5::DerivedClockDomain",
+                                    "name": "clk_domain",
+                                    "path": "board.processor.cores.core.interrupts.clk_domain",
+                                    "clk_divider": 16,
+                                    "clk_domain": "board.clk_domain",
+                                    "eventq_index": 0
+                                },
+                                "eventq_index": 0,
+                                "int_latency": 1000,
+                                "pio_latency": 100000,
+                                "system": "board",
+                                "int_requestor": {
+                                    "role": "GEM5 REQUESTOR",
+                                    "peer": "board.cache_hierarchy.ruby_system.l1_controllers.sequencer.in_ports[4]",
+                                    "is_source": "True"
+                                },
+                                "int_responder": {
+                                    "role": "GEM5 RESPONDER",
+                                    "peer": "board.cache_hierarchy.ruby_system.l1_controllers.sequencer.interrupt_out_port[1]",
+                                    "is_source": "False"
+                                },
+                                "pio": {
+                                    "role": "GEM5 RESPONDER",
+                                    "peer": "board.cache_hierarchy.ruby_system.l1_controllers.sequencer.interrupt_out_port[0]",
+                                    "is_source": "False"
+                                }
+                            }
+                        ],
+                        "isa": [
+                            {
+                                "type": "X86ISA",
+                                "cxx_class": "gem5::X86ISA::ISA",
+                                "name": "isa",
+                                "path": "board.processor.cores.core.isa",
+                                "APMInfo": [
+                                    2147483672,
+                                    1752462657,
+                                    1769238117,
+                                    1145913699
+                                ],
+                                "CacheParams": [
+                                    0,
+                                    0,
+                                    0,
+                                    0
+                                ],
+                                "ExtendedFeatures": [
+                                    0,
+                                    25165824,
+                                    0,
+                                    0
+                                ],
+                                "ExtendedState": [
+                                    0,
+                                    0,
+                                    0,
+                                    0,
+                                    0,
+                                    0,
+                                    0,
+                                    0
+                                ],
+                                "FamilyModelStepping": [
+                                    134993,
+                                    2053,
+                                    4024171519,
+                                    521
+                                ],
+                                "FamilyModelSteppingBrandFeatures": [
+                                    134993,
+                                    1029,
+                                    3956538367,
+                                    131073
+                                ],
+                                "L1CacheAndTLB": [
+                                    4278779656,
+                                    4280352544,
+                                    1073873216,
+                                    1073873216
+                                ],
+                                "L2L3CacheAndL2TLB": [
+                                    0,
+                                    1107313152,
+                                    0,
+                                    67141952
+                                ],
+                                "LongModeAddressSize": [
+                                    12336,
+                                    0,
+                                    0,
+                                    0
+                                ],
+                                "eventq_index": 0,
+                                "name_string": "Fake gem5 x86_64 CPU",
+                                "vendor_string": "HygonGenuine"
+                            }
+                        ],
+                        "max_insts_all_threads": 0,
+                        "max_insts_any_thread": 0,
+                        "mmu": {
+                            "type": "X86MMU",
+                            "cxx_class": "gem5::X86ISA::MMU",
+                            "name": "mmu",
+                            "path": "board.processor.cores.core.mmu",
+                            "dtb": {
+                                "type": "X86TLB",
+                                "cxx_class": "gem5::X86ISA::TLB",
+                                "name": "dtb",
+                                "path": "board.processor.cores.core.mmu.dtb",
+                                "entry_type": "data",
+                                "eventq_index": 0,
+                                "next_level": null,
+                                "size": 64,
+                                "system": "board",
+                                "walker": {
+                                    "type": "X86PagetableWalker",
+                                    "cxx_class": "gem5::X86ISA::Walker",
+                                    "name": "walker",
+                                    "path": "board.processor.cores.core.mmu.dtb.walker",
+                                    "clk_domain": "board.clk_domain",
+                                    "eventq_index": 0,
+                                    "num_squash_per_cycle": 4,
+                                    "power_model": [],
+                                    "power_state": {
+                                        "type": "PowerState",
+                                        "cxx_class": "gem5::PowerState",
+                                        "name": "power_state",
+                                        "path": "board.processor.cores.core.mmu.dtb.walker.power_state",
+                                        "clk_gate_bins": 20,
+                                        "clk_gate_max": 1000000000000,
+                                        "clk_gate_min": 1000,
+                                        "default_state": "UNDEFINED",
+                                        "eventq_index": 0,
+                                        "leaders": [],
+                                        "possible_states": []
+                                    },
+                                    "system": "board",
+                                    "port": {
+                                        "role": "GEM5 REQUESTOR",
+                                        "peer": "board.cache_hierarchy.ruby_system.l1_controllers.sequencer.in_ports[3]",
+                                        "is_source": "True"
+                                    }
+                                }
+                            },
+                            "eventq_index": 0,
+                            "itb": {
+                                "type": "X86TLB",
+                                "cxx_class": "gem5::X86ISA::TLB",
+                                "name": "itb",
+                                "path": "board.processor.cores.core.mmu.itb",
+                                "entry_type": "instruction",
+                                "eventq_index": 0,
+                                "next_level": null,
+                                "size": 64,
+                                "system": "board",
+                                "walker": {
+                                    "type": "X86PagetableWalker",
+                                    "cxx_class": "gem5::X86ISA::Walker",
+                                    "name": "walker",
+                                    "path": "board.processor.cores.core.mmu.itb.walker",
+                                    "clk_domain": "board.clk_domain",
+                                    "eventq_index": 0,
+                                    "num_squash_per_cycle": 4,
+                                    "power_model": [],
+                                    "power_state": {
+                                        "type": "PowerState",
+                                        "cxx_class": "gem5::PowerState",
+                                        "name": "power_state",
+                                        "path": "board.processor.cores.core.mmu.itb.walker.power_state",
+                                        "clk_gate_bins": 20,
+                                        "clk_gate_max": 1000000000000,
+                                        "clk_gate_min": 1000,
+                                        "default_state": "UNDEFINED",
+                                        "eventq_index": 0,
+                                        "leaders": [],
+                                        "possible_states": []
+                                    },
+                                    "system": "board",
+                                    "port": {
+                                        "role": "GEM5 REQUESTOR",
+                                        "peer": "board.cache_hierarchy.ruby_system.l1_controllers.sequencer.in_ports[2]",
+                                        "is_source": "True"
+                                    }
+                                }
+                            }
+                        },
+                        "numThreads": 1,
+                        "power_gating_on_idle": false,
+                        "power_model": [],
+                        "power_state": {
+                            "type": "PowerState",
+                            "cxx_class": "gem5::PowerState",
+                            "name": "power_state",
+                            "path": "board.processor.cores.core.power_state",
+                            "clk_gate_bins": 20,
+                            "clk_gate_max": 1000000000000,
+                            "clk_gate_min": 1000,
+                            "default_state": "UNDEFINED",
+                            "eventq_index": 0,
+                            "leaders": [],
+                            "possible_states": [
+                                "ON",
+                                "CLK_GATED",
+                                "OFF"
+                            ]
+                        },
+                        "progress_interval": 0,
+                        "pwr_gating_latency": 300,
+                        "simpoint_start_insts": [],
+                        "socket_id": 0,
+                        "switched_out": false,
+                        "syscallRetryLatency": 10000,
+                        "system": "board",
+                        "threadPolicy": "RoundRobin",
+                        "tracer": {
+                            "type": "ExeTracer",
+                            "cxx_class": "gem5::trace::ExeTracer",
+                            "name": "tracer",
+                            "path": "board.processor.cores.core.tracer",
+                            "disassembler": {
+                                "type": "InstDisassembler",
+                                "cxx_class": "gem5::trace::InstDisassembler",
+                                "name": "disassembler",
+                                "path": "board.processor.cores.core.tracer.disassembler",
+                                "eventq_index": 0
+                            },
+                            "eventq_index": 0
+                        },
+                        "workload": [
+                            {
+                                "type": "Process",
+                                "cxx_class": "gem5::Process",
+                                "name": "workload",
+                                "path": "board.processor.cores.core.workload",
+                                "cmd": [
+                                    "/project/linuxlab/gem5-24/gem5/testprogs/queens_x86",
+                                    "10"
+                                ],
+                                "cwd": "/home/compute/d.yiqun/assign3",
+                                "drivers": [],
+                                "egid": 100,
+                                "env": [],
+                                "errout": "cerr",
+                                "euid": 100,
+                                "eventq_index": 0,
+                                "executable": "/project/linuxlab/gem5-24/gem5/testprogs/queens_x86",
+                                "gid": 100,
+                                "input": "cin",
+                                "kvmInSE": false,
+                                "maxStackSize": 67108864,
+                                "output": "cout",
+                                "pgid": 100,
+                                "pid": 100,
+                                "ppid": 0,
+                                "release": "5.1.0",
+                                "simpoint": 0,
+                                "system": "board",
+                                "uid": 100,
+                                "useArchPT": false
+                            }
+                        ],
+                        "dcache_port": {
+                            "role": "GEM5 REQUESTOR",
+                            "peer": "board.cache_hierarchy.ruby_system.l1_controllers.sequencer.in_ports[1]",
+                            "is_source": "True"
+                        },
+                        "icache_port": {
+                            "role": "GEM5 REQUESTOR",
+                            "peer": "board.cache_hierarchy.ruby_system.l1_controllers.sequencer.in_ports[0]",
+                            "is_source": "True"
+                        }
+                    }
+                }
+            ]
+        },
+        "system_port": {
+            "role": "GEM5 REQUESTOR",
+            "peer": "board.cache_hierarchy.ruby_system.sys_port_proxy.in_ports[0]",
+            "is_source": "True"
+        }
+    }
+}
