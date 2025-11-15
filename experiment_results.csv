@@ -1,4 +1,4 @@
-clock_freq,l1d_assoc,l1d_size,instructions_committed,avg_gap_between_requests,l1d_hits,l1d_replacements,l1d_miss_rate,l1i_miss_rate,l2_miss_rate,cpu_cycles
+clock_freq,l1d_assoc,l1d_size,instructions_committed (count),avg_gap_between_requests (ticks),l1d_hits (count),l1d_replacements (count),l1d_miss_rate (ratio),l1i_miss_rate (ratio),l2_miss_rate (ratio),cpu_cycles (cycles)
 1GHz,2,1kB,44487,237931.76,17066,1466,0.061173,0.019754,0.257955,156027
 1GHz,2,2kB,44487,229299.21,17998,657,0.016556,0.019782,0.570359,147875
 1GHz,2,4kB,44487,226362.20,18151,514,0.008738,0.019796,0.725714,146467
