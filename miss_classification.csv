@@ -1,0 +1,5 @@
+Miss Type,Total Misses,Percentage,Configuration Used To Discover This
+Total,1112,100%,L1D$ Size: 1kB — L1D$ Association: 2
+Cold,110,9.9%,L1D$ Size: 8kB — L1D$ Association: 8
+Capacity,228,20.5%,"Difference between (1kB, 8-way) and (8kB, 8-way)"
+Conflict,774,69.6%,"Difference between (1kB, 2-way) and (1kB, 8-way)"
