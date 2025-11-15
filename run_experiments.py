@@ -62,8 +62,9 @@ def run_gem5_simulation(clock_freq, l1d_assoc, l1d_size, output_dir):
     try:
         result = subprocess.run(
             cmd,
-            capture_output=True,
-            text=True,
+            stdout=subprocess.PIPE,
+            stderr=subprocess.PIPE,
+            universal_newlines=True,
             check=True,
             cwd=SCRIPT_DIR
         )
